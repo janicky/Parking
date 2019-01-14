@@ -11,7 +11,7 @@ namespace Parking.Model {
 
         private string id;
         private VehicleType type;
-        private ObservableCollection<Visit> visits;
+        private ObservableCollection<Visit> visits = new ObservableCollection<Visit>();
 
         public Vehicle(string id, VehicleType type) {
             this.id = id;
@@ -24,6 +24,10 @@ namespace Parking.Model {
 
         public VehicleType GetVehicleType() {
             return type;
+        }
+
+        public ObservableCollection<Visit> GetVisits() {
+            return visits;
         }
 
         public void AddVisit(Visit visit) {
