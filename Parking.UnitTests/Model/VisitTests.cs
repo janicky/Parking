@@ -11,7 +11,7 @@ namespace Parking.UnitTests.Model {
 
         [TestInitialize]
         public void TestInitialize() {
-            vehicle = new Vehicle("xxx", Vehicle.VehicleTypes.Car);
+            vehicle = new Vehicle("xxx", Vehicle.Type.Car);
             DateTimeOffset datetime = DateTimeOffset.Now.AddHours(-5);
             visit = new Visit(1, vehicle, datetime);
         }

@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 namespace Parking.Model {
     public class Vehicle {
-        public enum VehicleTypes { Car = 1, Motorcycle = 2 }
-
-        private string id;
-        private VehicleTypes type;
+        public enum Type { Car = 1, Motorcycle = 2 }
   
         public string Id { get; set; }
         public int VehicleType { get; set; }
 
-        public Vehicle(string id, VehicleTypes type) {
+        public Vehicle(string id, Type type) {
             Id = id;
             VehicleType = (int) type;
         }
