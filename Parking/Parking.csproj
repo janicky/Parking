@@ -69,6 +69,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Model\Visit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
