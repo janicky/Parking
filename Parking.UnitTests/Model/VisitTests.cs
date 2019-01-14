@@ -13,7 +13,7 @@ namespace Parking.UnitTests.Model {
         public void TestInitialize() {
             vehicle = new Vehicle("xxx", Vehicle.Type.Car);
             DateTimeOffset datetime = DateTimeOffset.Now.AddHours(-5);
-            visit = new Visit(1, vehicle.Id, datetime.ToUnixTimeSeconds());
+            visit = new Visit(1, vehicle.Id, 1, datetime.ToUnixTimeSeconds());
         }
 
         [TestMethod]
