@@ -16,7 +16,9 @@ namespace Parking.UnitTests.Services {
 
         [TestMethod]
         public void GetVehicles() {
-            List<Vehicle> vehicles = dr.GetVehicles();
+            List<Vehicle> vehicles = new List<Vehicle>(dr.GetVehicles());
+            Assert.AreEqual(1, vehicles.Count);
+            Assert.AreEqual("XXX001", vehicles[0].Id);
         }
     }
 }

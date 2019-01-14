@@ -11,12 +11,11 @@ using Microsoft.Data.Sqlite;
 namespace Parking.Services {
     public partial class DataRepository {
 
-        public List<Vehicle> GetVehicles() {
+        public IEnumerable<Vehicle> GetVehicles() {
             List<Vehicle> vehicles = new List<Vehicle>();
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString)) {
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            return conn.Table<Vehicle>();
 
-            }
-            return vehicles;
         }
     }
 }

@@ -12,6 +12,10 @@ namespace Parking.Model {
         public string Id { get; set; }
         public int VehicleType { get; set; }
 
+        public Vehicle() {
+
+        }
+
         public Vehicle(string id, Type type) {
             Id = id;
             VehicleType = (int) type;
