@@ -19,13 +19,5 @@ namespace Parking.Model {
             Id = id;
             VehicleType = (int) type;
         }
-
-        public string GetId() {
-            return id;
-        }
-
-        public VehicleTypes GetVehicleType() {
-            return type;
-        }
     }
 }
