@@ -11,7 +11,7 @@ namespace Parking.Services {
         private string connectionString = "W:/C#/Parking/Parking.Services/database.db";
 
         public DataRepository() {
-            raw.SetProvider(new SQLite3Provider_e_sqlite3());
+            Batteries_V2.Init();
         }
     }
 }
