@@ -11,12 +11,15 @@ namespace Parking.Model {
         private Vehicle vehicle;
         private DateTimeOffset startDate;
         private DateTimeOffset endDate;
+        private Payment payment;
 
         public Visit(Vehicle vehicle, DateTimeOffset startDate, DateTimeOffset endDate = default(DateTimeOffset)) {
             id = index++;
             this.vehicle = vehicle;
             this.startDate = startDate;
             this.endDate = endDate;
+            payment = null;
+            this.vehicle.AddVisit(this);
         }
 
         public int GetId() {
@@ -33,6 +36,10 @@ namespace Parking.Model {
 
         public DateTimeOffset GetEndDate() {
             return endDate;
+        }
+
+        public void End() {
+
         }
     }
 }
