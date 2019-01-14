@@ -15,5 +15,17 @@ namespace Parking.Model {
             this.value = value;
             date = DateTimeOffset.Now;
         }
+
+        public Visit GetVisit() {
+            return visit;
+        }
+
+        public double GetValue() {
+            return value;
+        }
+
+        public DateTimeOffset GetDate() {
+            return date;
+        }
     }
 }
