@@ -69,9 +69,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Payment.cs" />
-    <Compile Include="Model\Vehicle.cs" />
-    <Compile Include="Model\Visit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,6 +95,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>
