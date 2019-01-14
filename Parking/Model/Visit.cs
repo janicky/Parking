@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Parking.Model {
     public class Visit {
-        private static int index = 0;
         private int id;
         private Vehicle vehicle;
         private DateTimeOffset startDate;
@@ -14,8 +13,8 @@ namespace Parking.Model {
         private Payment payment = null;
         private bool finished = false;
 
-        public Visit(Vehicle vehicle, DateTimeOffset startDate, DateTimeOffset endDate = default(DateTimeOffset)) {
-            id = index++;
+        public Visit(int id, Vehicle vehicle, DateTimeOffset startDate, DateTimeOffset endDate = default(DateTimeOffset)) {
+            this.id = id;
             this.vehicle = vehicle;
             this.startDate = startDate;
             this.endDate = endDate;
