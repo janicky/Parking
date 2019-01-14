@@ -44,6 +44,11 @@ namespace Parking.Model {
             return finished;
         }
 
+        public int GetDuration() {
+            DateTimeOffset range = (endDate != default(DateTimeOffset) ? endDate : DateTimeOffset.Now);
+            return range.Subtract(startDate).Hours;
+        }
+
         public void Finish(Payment payment) {
             if (finished) {
                 throw new Exception("The visit has already been finished.");
