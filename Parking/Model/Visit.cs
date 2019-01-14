@@ -11,14 +11,14 @@ namespace Parking.Model {
         private Vehicle vehicle;
         private DateTimeOffset startDate;
         private DateTimeOffset endDate;
-        private Payment payment;
+        private Payment payment = null;
+        private bool finished = false;
 
         public Visit(Vehicle vehicle, DateTimeOffset startDate, DateTimeOffset endDate = default(DateTimeOffset)) {
             id = index++;
             this.vehicle = vehicle;
             this.startDate = startDate;
             this.endDate = endDate;
-            payment = null;
             this.vehicle.AddVisit(this);
         }
 
@@ -38,8 +38,27 @@ namespace Parking.Model {
             return endDate;
         }
 
-        public void End() {
+        public Payment GetPayment() {
+            return payment;
+        }
 
+        public bool IsFinished() {
+            return finished;
+        }
+
+        public void Pay(Payment payment) {
+            this.payment = payment;
+        }
+
+        public void Finish() {
+            if (finished) {
+                throw new Exception("The visit has already been finished.");
+            }
+            if (payment == null) {
+                throw new Exception("The visit was not paid.");
+            }
+            finished = true;
+            endDate = DateTimeOffset.Now;
         }
     }
 }
