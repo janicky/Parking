@@ -46,17 +46,11 @@ namespace Parking.Model {
             return finished;
         }
 
-        public void Pay(Payment payment) {
-            this.payment = payment;
-        }
-
-        public void Finish() {
+        public void Finish(Payment payment) {
             if (finished) {
                 throw new Exception("The visit has already been finished.");
             }
-            if (payment == null) {
-                throw new Exception("The visit was not paid.");
-            }
+            this.payment = payment;
             finished = true;
             endDate = DateTimeOffset.Now;
         }
