@@ -15,5 +15,13 @@ namespace Parking.Model {
             this.id = id;
             this.type = type;
         }
+
+        public string GetId() {
+            return id;
+        }
+
+        public VehicleType GetType() {
+            return type;
+        }
     }
 }
