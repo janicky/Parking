@@ -6,55 +6,50 @@ using System.Threading.Tasks;
 
 namespace Parking.Model {
     public class Visit {
-        private int id;
-        private Vehicle vehicle;
+
         private DateTimeOffset startDate;
         private DateTimeOffset endDate;
-        private Payment payment = null;
-        private bool finished = false;
 
-        public Visit(int id, Vehicle vehicle, DateTimeOffset startDate, DateTimeOffset endDate = default(DateTimeOffset)) {
-            this.id = id;
-            this.vehicle = vehicle;
-            this.startDate = startDate;
-            this.endDate = endDate;
+        public int Id { get; set; }
+        // Datetime in unix time
+        public long StartDate {
+            get {
+                return startDate.ToUnixTimeSeconds();
+            }
+            set {
+                startDate = DateTimeOffset.FromUnixTimeSeconds(value);
+            }
         }
-
-        public int GetId() {
-            return id;
+        public long EndDate {
+            get {
+                return endDate.ToUnixTimeSeconds();
+            }
+            set {
+                endDate = DateTimeOffset.FromUnixTimeSeconds(value);
+            }
         }
+        public string VehicleId { get; set; }
+        public int PaymentId { get; set; }
+        public bool Finished { get; set; }
 
-        public Vehicle GetVehicle() {
-            return vehicle;
-        }
-
-        public DateTimeOffset GetStartDate() {
-            return startDate;
-        }
-
-        public DateTimeOffset GetEndDate() {
-            return endDate;
-        }
-
-        public Payment GetPayment() {
-            return payment;
-        }
-
-        public bool IsFinished() {
-            return finished;
+        public Visit(int id, string vehicleId, long startDate, long endDate = 0) {
+            Id = id;
+            VehicleId = vehicleId;
+            StartDate = startDate;
+            EndDate = endDate;
         }
 
         public int GetDuration() {
-            DateTimeOffset range = (endDate != default(DateTimeOffset) ? endDate : DateTimeOffset.Now);
+            DateTimeOffset range = (EndDate != 0 ? endDate : DateTimeOffset.Now);
             return range.Subtract(startDate).Hours;
         }
 
         public void Finish(Payment payment) {
-            if (finished) {
+            if (Finished) {
                 throw new Exception("The visit has already been finished.");
             }
-            this.payment = payment;
-            finished = true;
+            // todo: this.payment = payment;
+            Finished = true;
             endDate = DateTimeOffset.Now;
         }
     }

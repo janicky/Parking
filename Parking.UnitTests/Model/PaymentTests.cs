@@ -9,7 +9,7 @@ namespace Parking.UnitTests.Model {
         public void CorrectlyInitialize() {
             Vehicle vehicle = new Vehicle("yyy", Vehicle.Type.Motorcycle);
             DateTimeOffset datetime = DateTimeOffset.Now.AddHours(-2);
-            Visit visit = new Visit(1, vehicle, datetime);
+            Visit visit = new Visit(1, vehicle.Id, datetime.ToUnixTimeSeconds());
             Payment payment = new Payment(1, visit, 100d);
         }
     }
