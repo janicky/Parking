@@ -29,7 +29,7 @@ namespace Parking.UnitTests.Model {
 
         [TestMethod]
         public void CorrectlyFinish() {
-            var payment = new Payment(2, visit, 100d);
+            var payment = new Payment(2, 100d);
             Assert.AreEqual(false, visit.Finished);
             visit.Finish(payment);
             Assert.AreEqual(true, visit.Finished);

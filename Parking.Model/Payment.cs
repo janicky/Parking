@@ -6,32 +6,23 @@ using System.Threading.Tasks;
 
 namespace Parking.Model {
     public class Payment {
-        private int id;
-        private Visit visit;
-        private double value;
         private DateTimeOffset date;
 
-        public Payment(int id, Visit visit, double value) {
-            this.id = id;
-            this.visit = visit;
-            this.value = value;
-            date = DateTimeOffset.Now;
+        public int Id { get; set; }
+        public double Value { get; set; }
+        public long Date {
+            get {
+                return date.ToUnixTimeSeconds();
+            }
+            set {
+                date = DateTimeOffset.FromUnixTimeSeconds(value);
+            }
         }
 
-        public int GetId() {
-            return id;
-        }
-
-        public Visit GetVisit() {
-            return visit;
-        }
-
-        public double GetValue() {
-            return value;
-        }
-
-        public DateTimeOffset GetDate() {
-            return date;
+        public Payment(int id, double value) {
+            Id = id;
+            Value = value;
+            Date = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
     }
 }
