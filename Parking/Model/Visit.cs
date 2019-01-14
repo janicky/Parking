@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Parking.Model {
-    class Visit {
+    public class Visit {
         private static int index = 0;
         private int id;
         private Vehicle vehicle;

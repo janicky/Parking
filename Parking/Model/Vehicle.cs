@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Parking.Model {
-    class Vehicle {
+    public class Vehicle {
         public enum VehicleType { Car, Motorcycle }
 
         private string id;
