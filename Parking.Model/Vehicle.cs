@@ -7,35 +7,25 @@ using System.Threading.Tasks;
 
 namespace Parking.Model {
     public class Vehicle {
-        public enum VehicleType { Car, Motorcycle }
+        public enum VehicleTypes { Car = 1, Motorcycle = 2 }
 
         private string id;
-        private VehicleType type;
-        private ObservableCollection<Visit> visits = new ObservableCollection<Visit>();
+        private VehicleTypes type;
+  
+        public string Id { get; set; }
+        public int VehicleType { get; set; }
 
-        public Vehicle(string id, VehicleType type) {
-            this.id = id;
-            this.type = type;
+        public Vehicle(string id, VehicleTypes type) {
+            Id = id;
+            VehicleType = (int) type;
         }
 
         public string GetId() {
             return id;
         }
 
-        public VehicleType GetVehicleType() {
+        public VehicleTypes GetVehicleType() {
             return type;
-        }
-
-        public ObservableCollection<Visit> GetVisits() {
-            return visits;
-        }
-
-        public void AddVisit(Visit visit) {
-            visits.Add(visit);
-        }
-
-        public void RemoveVisit(Visit visit) {
-            visits.Remove(visit);
         }
     }
 }

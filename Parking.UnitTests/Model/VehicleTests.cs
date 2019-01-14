@@ -14,23 +14,8 @@ namespace Parking.UnitTests.Model {
 
         [TestInitialize]
         public void TestInitialize() {
-            vehicle = new Vehicle("evt2103", Vehicle.VehicleType.Car);
+            vehicle = new Vehicle("evt2103", Vehicle.VehicleTypes.Car);
             visit = new Visit(1, vehicle, DateTimeOffset.Now);
-        }
-
-        [TestMethod]
-        public void CorrectlyAddVisit() {
-            Assert.AreEqual(0, vehicle.GetVisits().Count);
-            vehicle.AddVisit(visit);
-            Assert.AreEqual(1, vehicle.GetVisits().Count);
-        }
-
-        [TestMethod]
-        public void CorrectlyRemoveVisit() {
-            vehicle.AddVisit(visit);
-            Assert.AreEqual(1, vehicle.GetVisits().Count);
-            vehicle.RemoveVisit(visit);
-            Assert.AreEqual(0, vehicle.GetVisits().Count);
         }
     }
 }
