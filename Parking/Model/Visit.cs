@@ -18,7 +18,6 @@ namespace Parking.Model {
             this.vehicle = vehicle;
             this.startDate = startDate;
             this.endDate = endDate;
-            this.vehicle.AddVisit(this);
         }
 
         public int GetId() {
