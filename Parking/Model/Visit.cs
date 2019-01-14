@@ -18,5 +18,21 @@ namespace Parking.Model {
             this.startDate = startDate;
             this.endDate = endDate;
         }
+
+        public int GetId() {
+            return id;
+        }
+
+        public Vehicle GetVehicle() {
+            return vehicle;
+        }
+
+        public DateTimeOffset GetStartDate() {
+            return startDate;
+        }
+
+        public DateTimeOffset GetEndDate() {
+            return endDate;
+        }
     }
 }
