@@ -8,8 +8,8 @@ namespace Parking.ViewModel {
     class VehicleDetails : ViewModel {
         private bool _visible;
         private int _visitId;
-        private long _visitStartDate;
-        private long _visitEndDate;
+        private string _visitStartDate;
+        private string _visitEndDate;
         private bool _visitFinished;
 
         public bool Visible {
@@ -22,12 +22,12 @@ namespace Parking.ViewModel {
             set { _visitId = value; OnPropertyChanged("VisitId"); }
         }
 
-        public long VisitStartDate {
+        public string VisitStartDate {
             get => _visitStartDate;
             set { _visitStartDate = value; OnPropertyChanged("VisitStartDate"); }
         }
 
-        public long VisitEndDate {
+        public string VisitEndDate {
             get => _visitEndDate;
             set { _visitEndDate = value; OnPropertyChanged("VisitEndDate"); }
         }

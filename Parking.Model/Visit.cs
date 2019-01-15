@@ -34,6 +34,14 @@ namespace Parking.Model {
         public int PaymentId { get; set; }
         public bool Finished { get; set; }
 
+        public DateTimeOffset StartDateTime {
+            get => startDate;
+        }
+
+        public DateTimeOffset EndDateTime {
+            get => endDate;
+        }
+
         public Visit() {
 
         }

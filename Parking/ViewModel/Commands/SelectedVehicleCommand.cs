@@ -23,8 +23,8 @@ namespace Parking.ViewModel.Commands {
             var visit = vm.Visits.GetForVehicle(vm.SelectedVehicle.Id);
             if (visit != null) {
                 vm.VehicleDetails.VisitId = visit.Id;
-                vm.VehicleDetails.VisitStartDate = visit.StartDate;
-                vm.VehicleDetails.VisitEndDate = visit.EndDate;
+                vm.VehicleDetails.VisitStartDate = visit.StartDateTime.ToString();
+                vm.VehicleDetails.VisitEndDate = visit.EndDateTime.ToString();
                 vm.VehicleDetails.VisitFinished = visit.Finished;
             }
             vm.VehicleDetails.Visible = visit != null;
