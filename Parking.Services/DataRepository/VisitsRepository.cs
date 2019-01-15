@@ -14,7 +14,7 @@ namespace Parking.Services {
             return new List<Visit>(conn.Table<Visit>());
         }
 
-        public Vehicle GetVisit(int id) {
+        public Visit GetVisit(int id) {
             return null;
         }
 
