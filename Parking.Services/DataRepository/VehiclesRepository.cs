@@ -22,6 +22,13 @@ namespace Parking.Services {
             return conn.Query<Vehicle>("SELECT * FROM Vehicle WHERE Id = ?", id).FirstOrDefault();
         }
 
+        public void CreateVehicle(Vehicle vehicle) {
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            conn.RunInTransaction(() => {
+                conn.Insert(vehicle);
+            });
+        }
+
         public void UpdateVehicle(Vehicle vehicle) {
             SQLiteConnection conn = new SQLiteConnection(connectionString);
             var existingVehicle = GetVehicle(vehicle.Id);
