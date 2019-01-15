@@ -15,7 +15,6 @@ namespace Parking.Services {
             List<Vehicle> vehicles = new List<Vehicle>();
             SQLiteConnection conn = new SQLiteConnection(connectionString);
             return conn.Table<Vehicle>();
-
         }
     }
 }

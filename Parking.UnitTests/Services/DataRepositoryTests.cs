@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Parking.Services;
 using Parking.Model;
 using System.Collections.Generic;
+using SQLitePCL;
 
 namespace Parking.UnitTests.Services {
     [TestClass]
@@ -11,7 +12,7 @@ namespace Parking.UnitTests.Services {
 
         [TestInitialize]
         public void InitializeTest() {
-
+            Batteries_V2.Init();
         }
 
         [TestMethod]
