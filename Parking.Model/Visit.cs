@@ -65,6 +65,11 @@ namespace Parking.Model {
             return range.Subtract(startDate).Hours;
         }
 
+        public double GetPrice() {
+            double price = 2.5;
+            return (GetDuration() + 1) * price;
+        }
+
         public void Finish(Payment payment) {
             if (Finished) {
                 throw new Exception("The visit has already been finished.");
