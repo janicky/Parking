@@ -98,5 +98,11 @@
   <ItemGroup>
     <Folder Include="Model\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Parking.Model\Parking.Model.csproj">
+      <Project>{3eb957d5-2742-4ff0-b453-4d02f4216bf8}</Project>
+      <Name>Parking.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
