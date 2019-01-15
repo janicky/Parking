@@ -19,7 +19,7 @@ namespace Parking {
     /// </summary>
     public partial class VehiclesWindow : Window {
         public VehiclesWindow() {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
