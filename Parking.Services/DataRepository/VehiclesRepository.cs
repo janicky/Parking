@@ -17,6 +17,9 @@ namespace Parking.Services {
             return conn.Table<Vehicle>();
         }
 
-
+        public Vehicle GetVehicle(string id) {
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            return conn.Query<Vehicle>("SELECT * FROM Vehicle WHERE Id = ?", id).FirstOrDefault();
+        }
     }
 }
