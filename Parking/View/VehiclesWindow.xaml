@@ -24,7 +24,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ListBox ItemsSource="{Binding VehiclesCollection}" Grid.Column="0">
+            <ListBox ItemsSource="{Binding VehiclesCollection}" SelectedValue="{Binding SelectedVehicle}" Grid.Column="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -34,6 +34,42 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Ostatni status pojazdu" Grid.Row="0" FontWeight="Bold" />
+                <StackPanel Margin="5" Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Identyfikator" Grid.Column="0"/>
+                        <Label Content="..." Grid.Column="1"/>
+                        <Label Content="Data rozpoczęcia" Grid.Column="0" Grid.Row="1" />
+                        <Label Content="..." Grid.Column="1" Grid.Row="1" />
+                        <Label Content="Data zakończenia" Grid.Column="0" Grid.Row="2" />
+                        <Label Content="..." Grid.Column="1" Grid.Row="2" />
+                        <Label Content="Czas trwania" Grid.Column="0" Grid.Row="3" />
+                        <Label Content="..." Grid.Column="1" Grid.Row="3" />
+                        <Label Content="Opłata" Grid.Column="0" Grid.Row="4" />
+                        <Label Content="..." Grid.Column="1" Grid.Row="4" />
+                        <Label Content="Zakończono?" Grid.Column="0" Grid.Row="5" />
+                        <Label Content="..." Grid.Column="1" Grid.Row="5" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
