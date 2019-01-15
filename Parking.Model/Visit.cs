@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace Parking.Model {
     public class Visit {
@@ -10,6 +11,7 @@ namespace Parking.Model {
         private DateTimeOffset startDate;
         private DateTimeOffset endDate;
 
+        [PrimaryKey]
         public int Id { get; set; }
         // Datetime in unix time
         public long StartDate {
