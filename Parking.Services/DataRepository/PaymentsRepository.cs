@@ -24,7 +24,10 @@ namespace Parking.Services {
         }
 
         public void CreatePayment(Payment payment) {
-
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            conn.RunInTransaction(() => {
+                conn.Insert(payment);
+            });
         }
 
         public void UpdatePayment(Payment payment) {
