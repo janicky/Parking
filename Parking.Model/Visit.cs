@@ -32,6 +32,10 @@ namespace Parking.Model {
         public int PaymentId { get; set; }
         public bool Finished { get; set; }
 
+        public Visit() {
+
+        }
+
         public Visit(int id, string vehicleId, int paymentId, long startDate, long endDate = 0) {
             Id = id;
             VehicleId = vehicleId;
