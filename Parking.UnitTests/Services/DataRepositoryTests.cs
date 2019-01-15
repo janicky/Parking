@@ -18,10 +18,11 @@ namespace Parking.UnitTests.Services {
         }
 
         [TestMethod]
-        public void GetVehicles() {
-            List<Vehicle> vehicles = new List<Vehicle>(dr.GetAllVehicles());
-            Assert.AreEqual(1, vehicles.Count);
-            Assert.AreEqual("XXX001", vehicles[0].Id);
+        public void CorrectlyClearDatabase() {
+            dr.Clear();
+            Assert.AreEqual(0, dr.GetAllVehicles().Count);
+            Assert.AreEqual(0, dr.GetAllVisits().Count);
+            Assert.AreEqual(0, dr.GetAllPayments().Count);
         }
     }
 }
