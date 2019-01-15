@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Parking.Model;
 
-namespace Parking.Servicesy {
+namespace Parking.Services {
     public partial class DataRepository {
         
         public List<Payment> GetAllPayments() {
