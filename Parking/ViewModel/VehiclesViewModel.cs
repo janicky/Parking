@@ -12,19 +12,22 @@ using Parking.ViewModel.Commands;
 
 namespace Parking.ViewModel {
     
-    class VehiclesViewModel : INotifyPropertyChanged {
+    class VehiclesViewModel : ViewModel {
 
+        // Fields
+        private Vehicle _selectedVehicle;
+
+        // Model
         private readonly Vehicles Vehicles = new Vehicles();
 
-        public event PropertyChangedEventHandler PropertyChanged;
         private ObservableCollection<Vehicle> vehicles;
 
-        // Commands
-        public ICommand SelectCommand;
+        public Vehicle SelectedVehicle {
+            get => _selectedVehicle;
+            set { _selectedVehicle = value; OnPropertyChanged("SelectedVehicle"); }
+        }
 
         public VehiclesViewModel() {
-            // Initialize commands
-            SelectCommand = new SelectVehicleCommand();
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
         }
 
@@ -37,8 +40,9 @@ namespace Parking.ViewModel {
             }
         }
 
-        protected void OnPropertyChanged(string name) {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("VehiclesCollection"));
+        public void OnSelectedVehicleChanged() {
+            MessageBox.Show("test");
         }
+
     }
 }
