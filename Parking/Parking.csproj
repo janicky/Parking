@@ -66,6 +66,7 @@
     <Compile Include="Model\Payments.cs" />
     <Compile Include="Model\Vehicles.cs" />
     <Compile Include="Model\Visits.cs" />
+    <Compile Include="ViewModel\Commands\SelectVehicleCommand.cs" />
     <Compile Include="ViewModel\VehiclesViewModel.cs" />
     <Compile Include="View\VehiclesWindow.xaml.cs">
       <DependentUpon>VehiclesWindow.xaml</DependentUpon>

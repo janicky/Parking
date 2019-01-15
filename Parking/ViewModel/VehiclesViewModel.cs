@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using Parking.Model;
+using Parking.ViewModel.Commands;
 
 namespace Parking.ViewModel {
     
@@ -16,6 +18,9 @@ namespace Parking.ViewModel {
 
         public event PropertyChangedEventHandler PropertyChanged;
         private ObservableCollection<Vehicle> vehicles;
+
+        // Commands
+        public ICommand SelectCommand = new SelectVehicleCommand();
 
         public VehiclesViewModel() {
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
