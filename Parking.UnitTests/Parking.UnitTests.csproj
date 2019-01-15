@@ -67,6 +67,7 @@
     <Compile Include="Model\VehicleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataRepositoryTests.cs" />
+    <Compile Include="Services\VisitsRepositoryTests.cs" />
     <Compile Include="Services\VehiclesRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
