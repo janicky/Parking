@@ -21,8 +21,9 @@
         <ListBox ItemsSource="{Binding VehiclesCollection}" Grid.Column="0" Grid.Row="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Label Content="Text"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Id}"/>
+                        <Label Content="{Binding VehicleTypeName}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Parking.Model;
 
 namespace Parking.ViewModel {
@@ -17,9 +18,7 @@ namespace Parking.ViewModel {
         private ObservableCollection<Vehicle> vehicles;
 
         public VehiclesViewModel() {
-            var newVehicles = new ObservableCollection<Vehicle>();
-            newVehicles.Add(new Vehicle("XXX0001", Vehicle.Type.Car));
-            VehiclesCollection = newVehicles;
+            VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
