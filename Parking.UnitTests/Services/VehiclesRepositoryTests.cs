@@ -46,5 +46,16 @@ namespace Parking.UnitTests.Services {
             dr.DeleteVehicle(vehicle.Id);
             Assert.AreEqual(1, dr.GetAllVehicles().Count);
         }
+
+        [TestMethod]
+        public void CorrectlyUpdateVehicle() {
+            Vehicle vehicle = dr.GetVehicle("XXX001");
+            Assert.AreEqual(1, vehicle.VehicleType);
+            vehicle.VehicleType = (int) Vehicle.Type.Motorcycle;
+            dr.UpdateVehicle(vehicle);
+
+            Vehicle updated_vehicle = dr.GetVehicle("XXX001");
+            Assert.AreEqual(2, updated_vehicle.VehicleType);
+        }
     }
 }

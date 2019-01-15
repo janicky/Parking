@@ -9,9 +9,17 @@ using SQLite;
 namespace Parking.Model {
     public class Vehicle {
         public enum Type { Car = 1, Motorcycle = 2 }
+        private Type vehicleType;
         [PrimaryKey]
         public string Id { get; set; }
-        public int VehicleType { get; set; }
+        public int VehicleType {
+            get {
+                return (int) vehicleType;
+            }
+            set {
+                vehicleType = (Type) value;
+            }
+        }
 
         public Vehicle() {
 
