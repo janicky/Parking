@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace Parking.Model {
     public class Payment {
         private DateTimeOffset date;
-
+        [PrimaryKey]
         public int Id { get; set; }
         public double Value { get; set; }
         public long Date {
