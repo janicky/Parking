@@ -10,6 +10,9 @@ using Parking.Model;
 namespace Parking.ViewModel {
     
     class VehiclesViewModel : INotifyPropertyChanged {
+
+        private readonly Vehicles Vehicles = new Vehicles();
+
         public event PropertyChangedEventHandler PropertyChanged;
         private ObservableCollection<Vehicle> vehicles;
 
