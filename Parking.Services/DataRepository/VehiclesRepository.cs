@@ -19,7 +19,11 @@ namespace Parking.Services {
 
         public Vehicle GetVehicle(string id) {
             SQLiteConnection conn = new SQLiteConnection(connectionString);
-            return conn.Query<Vehicle>("SELECT * FROM Vehicle WHERE Id = ?", id).FirstOrDefault();
+            Vehicle vehicle = conn.Query<Vehicle>("SELECT * FROM Vehicle WHERE Id = ?", id).FirstOrDefault();
+            if (vehicle == null) {
+                throw new Exception("Vehicle not found.");
+            }
+            return vehicle;
         }
 
         public void CreateVehicle(Vehicle vehicle) {

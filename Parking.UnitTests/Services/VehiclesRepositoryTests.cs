@@ -22,14 +22,5 @@ namespace Parking.UnitTests.Services {
             Assert.AreEqual("XXX001", vehicles[0].Id);
             Assert.AreEqual(1, vehicles[0].VehicleType);
         }
-
-        [TestMethod]
-        public void CorrectlyReturnsSpecifiedVehicle() {
-            Vehicle vehicle = dr.GetVehicle("XXX001");
-            Assert.AreEqual("XXX001", vehicle.Id);
-
-            Vehicle incorrect_vehicle = dr.GetVehicle("XXX002");
-            Assert.AreEqual("XXX001", incorrect_vehicle.Id);
-        }
     }
 }
