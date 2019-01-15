@@ -64,6 +64,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Vehicles.cs" />
+    <Compile Include="Model\Visits.cs" />
     <Compile Include="ViewModel\VehiclesViewModel.cs" />
     <Compile Include="View\VehiclesWindow.xaml.cs">
       <DependentUpon>VehiclesWindow.xaml</DependentUpon>
