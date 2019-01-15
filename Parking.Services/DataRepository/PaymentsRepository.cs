@@ -42,7 +42,13 @@ namespace Parking.Services {
         }
 
         public void DeletePayment(int id) {
-
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            var existingPayment = GetPayment(id);
+            if (existingPayment != null) {
+                conn.RunInTransaction(() => {
+                    conn.Delete(existingPayment);
+                });
+            }
         }
     }
 }

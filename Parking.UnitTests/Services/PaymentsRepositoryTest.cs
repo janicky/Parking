@@ -44,7 +44,7 @@ namespace Parking.UnitTests.Services {
             Assert.AreEqual(1, dr.GetAllPayments().Count);
             dr.CreatePayment(payment);
             Assert.AreEqual(2, dr.GetAllPayments().Count);
-            dr.DeleteVisit(payment.Id);
+            dr.DeletePayment(payment.Id);
             Assert.AreEqual(1, dr.GetAllPayments().Count);
         }
 
