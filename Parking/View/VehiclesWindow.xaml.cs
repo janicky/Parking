@@ -15,10 +15,10 @@ using System.Windows.Shapes;
 
 namespace Parking {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy VehiclesWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
+    public partial class VehiclesWindow : Window {
+        public VehiclesWindow() {
             InitializeComponent();
         }
     }
