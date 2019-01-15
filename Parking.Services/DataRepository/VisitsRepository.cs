@@ -13,5 +13,18 @@ namespace Parking.Services {
             SQLiteConnection conn = new SQLiteConnection(connectionString);
             return new List<Visit>(conn.Table<Visit>());
         }
+
+        public Vehicle GetVisit(int id) {
+            return null;
+        }
+
+        public void CreateVisit(Visit visit) {
+        }
+
+        public void UpdateVisit(Visit visit) {
+        }
+
+        public void DeleteVisit(int id) {
+        }
     }
 }
