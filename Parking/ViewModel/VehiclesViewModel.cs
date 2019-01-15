@@ -20,9 +20,11 @@ namespace Parking.ViewModel {
         private ObservableCollection<Vehicle> vehicles;
 
         // Commands
-        public ICommand SelectCommand = new SelectVehicleCommand();
+        public ICommand SelectCommand;
 
         public VehiclesViewModel() {
+            // Initialize commands
+            SelectCommand = new SelectVehicleCommand();
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
         }
 
