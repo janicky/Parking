@@ -20,7 +20,14 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            vm.VehicleVisit = vm.Visits.GetForVehicle(vm.SelectedVehicle.Id);
+            var visit = vm.Visits.GetForVehicle(vm.SelectedVehicle.Id);
+            if (visit != null) {
+                vm.VehicleDetails.VisitId = visit.Id;
+                vm.VehicleDetails.VisitStartDate = visit.StartDate;
+                vm.VehicleDetails.VisitEndDate = visit.EndDate;
+                vm.VehicleDetails.VisitFinished = visit.Finished;
+            }
+            vm.VehicleDetails.Visible = visit != null;
         }
     }
 }

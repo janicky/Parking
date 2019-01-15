@@ -10,6 +10,9 @@
     <Window.DataContext>
         <ViewModel:VehiclesViewModel/>
     </Window.DataContext>
+    <Window.Resources >
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -48,7 +51,7 @@
                 </Grid.RowDefinitions>
                 <Label Content="Ostatni status pojazdu" Grid.Row="0" FontWeight="Bold" />
                 <StackPanel Margin="5" Grid.Row="1">
-                    <Grid>
+                    <Grid Visibility="{Binding VehicleDetails.Visible, Converter={StaticResource BoolToVisibilityConverter}}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
                             <ColumnDefinition Width="*" />
@@ -62,17 +65,17 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Label Content="Identyfikator" Grid.Column="0"/>
-                        <Label Content="{Binding Visit.Id}" Grid.Column="1"/>
+                        <Label Content="{Binding VehicleDetails.VisitId}" Grid.Column="1"/>
                         <Label Content="Data rozpoczęcia" Grid.Column="0" Grid.Row="1" />
-                        <Label Content="{Binding Visit.StartDate}" Grid.Column="1" Grid.Row="1" />
+                        <Label Content="{Binding VehicleDetails.VisitStartDate}" Grid.Column="1" Grid.Row="1" />
                         <Label Content="Data zakończenia" Grid.Column="0" Grid.Row="2" />
-                        <Label Content="{Binding Visit.EndDate}" Grid.Column="1" Grid.Row="2" />
+                        <Label Content="{Binding VehicleDetails.VisitEndDate}" Grid.Column="1" Grid.Row="2" />
                         <Label Content="Czas trwania" Grid.Column="0" Grid.Row="3" />
                         <Label Content="..." Grid.Column="1" Grid.Row="3" />
                         <Label Content="Opłata" Grid.Column="0" Grid.Row="4" />
                         <Label Content="..." Grid.Column="1" Grid.Row="4" />
                         <Label Content="Zakończono?" Grid.Column="0" Grid.Row="5" />
-                        <Label Content="{Binding Visit.Finished}" Grid.Column="1" Grid.Row="5" />
+                        <Label Content="{Binding VehicleDetails.VisitFinished}" Grid.Column="1" Grid.Row="5" />
                     </Grid>
                 </StackPanel>
             </Grid>

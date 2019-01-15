@@ -18,7 +18,7 @@ namespace Parking.ViewModel {
         private Vehicle _selectedVehicle;
 
         // Details
-        private Visit _visit;
+        private VehicleDetails _vehicleDetails = new VehicleDetails();
 
         // Model
         public readonly Vehicles Vehicles = new Vehicles();
@@ -34,9 +34,9 @@ namespace Parking.ViewModel {
             set { _selectedVehicle = value; OnPropertyChanged("SelectedVehicle"); }
         }
 
-        public Visit VehicleVisit {
-            get => _visit;
-            set { _visit = value; OnPropertyChanged("VehicleVisit"); }
+        public VehicleDetails VehicleDetails {
+            get => _vehicleDetails;
+            set { _vehicleDetails = value; OnPropertyChanged("VehicleDetails"); }
         }
 
         public VehiclesViewModel() {
