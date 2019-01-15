@@ -22,5 +22,17 @@ namespace Parking.UnitTests.Services {
             Assert.AreEqual("XXX001", vehicles[0].Id);
             Assert.AreEqual(1, vehicles[0].VehicleType);
         }
+
+        [TestMethod]
+        public void CorrectlyReturnsSpecifiedVehicle() {
+            Vehicle vehicle = dr.GetVehicle("XXX001");
+            Assert.AreEqual("XXX001", vehicle.Id);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Vehicle not found.")]
+        public void ThrowsExceptionOnInvalidVehicle() {
+            Vehicle vehicle = dr.GetVehicle("INVALID");
+        }
     }
 }
