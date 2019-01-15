@@ -10,6 +10,7 @@ namespace Parking.ViewModel {
         private int _visitId;
         private string _visitStartDate;
         private string _visitEndDate;
+        private string _visitDuration;
         private bool _visitFinished;
 
         public bool Visible {
@@ -30,6 +31,11 @@ namespace Parking.ViewModel {
         public string VisitEndDate {
             get => _visitEndDate;
             set { _visitEndDate = value; OnPropertyChanged("VisitEndDate"); }
+        }
+
+        public string VisitDuration {
+            get => _visitDuration;
+            set { _visitDuration = value; OnPropertyChanged("VisitDuration"); }
         }
 
         public bool VisitFinished {

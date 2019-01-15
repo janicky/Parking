@@ -42,6 +42,12 @@ namespace Parking.Model {
             get => endDate;
         }
 
+        public DateTimeOffset AbsoluteEndTime {
+            get {
+                return (EndDate != 0 ? endDate : DateTimeOffset.Now);
+            }
+        }
+
         public Visit() {
 
         }
