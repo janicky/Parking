@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Parking.Model;
+using SQLite;
 
 namespace Parking.Services {
     public partial class DataRepository {
         
         public List<Payment> GetAllPayments() {
-            return new List<Payment>();
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            return new List<Payment>(conn.Table<Payment>());
         }
 
         public Payment GetPayment(int id) {

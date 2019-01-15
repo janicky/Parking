@@ -20,6 +20,10 @@ namespace Parking.Model {
             }
         }
 
+        public Payment() {
+
+        }
+
         public Payment(int id, double value) {
             Id = id;
             Value = value;
