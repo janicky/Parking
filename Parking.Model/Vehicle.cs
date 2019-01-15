@@ -4,11 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace Parking.Model {
     public class Vehicle {
         public enum Type { Car = 1, Motorcycle = 2 }
-  
+        [PrimaryKey]
         public string Id { get; set; }
         public int VehicleType { get; set; }
 

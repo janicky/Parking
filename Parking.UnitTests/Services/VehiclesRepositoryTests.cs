@@ -13,6 +13,8 @@ namespace Parking.UnitTests.Services {
         [TestInitialize]
         public void InitializeTest() {
             Batteries_V2.Init();
+            dr.Clear();
+            dr.CreateVehicle(new Vehicle("XXX001", Vehicle.Type.Car));
         }
 
         [TestMethod]
