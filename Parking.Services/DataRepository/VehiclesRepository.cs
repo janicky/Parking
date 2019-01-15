@@ -32,5 +32,15 @@ namespace Parking.Services {
                 });
             }
         }
+
+        public void DeleteVehicle(string id) {
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            var existingVehicle = GetVehicle(id);
+            if (existingVehicle != null) {
+                conn.RunInTransaction(() => {
+                    conn.Delete(existingVehicle);
+                });
+            }
+        }
     }
 }
