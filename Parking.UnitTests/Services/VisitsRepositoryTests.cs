@@ -14,7 +14,7 @@ namespace Parking.UnitTests.Services {
         public void InitializeTest() {
             Batteries_V2.Init();
             dr.Clear();
-            dr.CreateVisit(new Visit(1, "XXX0001", DateTimeOffset.Now.AddHours(-2).ToUnixTimeSeconds()));
+            dr.CreateVisit(new Visit(1, "XXX001", DateTimeOffset.Now.AddHours(-2).ToUnixTimeSeconds()));
         }
 
         [TestMethod]

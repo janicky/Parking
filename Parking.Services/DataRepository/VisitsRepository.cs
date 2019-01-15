@@ -19,6 +19,10 @@ namespace Parking.Services {
         }
 
         public void CreateVisit(Visit visit) {
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            conn.RunInTransaction(() => {
+                conn.Insert(visit);
+            });
         }
 
         public void UpdateVisit(Visit visit) {
