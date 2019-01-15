@@ -15,7 +15,12 @@ namespace Parking.Services {
         }
 
         public Visit GetVisit(int id) {
-            return null;
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            Visit visit = conn.Query<Visit>("SELECT * FROM Visit WHERE Id = ?", id).FirstOrDefault();
+            if (visit == null) {
+                throw new Exception("Visit not found.");
+            }
+            return visit;
         }
 
         public void CreateVisit(Visit visit) {
