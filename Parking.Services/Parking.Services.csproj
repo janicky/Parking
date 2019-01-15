@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="DataContext.cs" />
     <Compile Include="DataRepository.cs" />
+    <Compile Include="DataRepository\PaymentsRepository.cs" />
     <Compile Include="DataRepository\VehiclesRepository.cs" />
     <Compile Include="DataRepository\VisitsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
