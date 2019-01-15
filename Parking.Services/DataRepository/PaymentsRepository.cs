@@ -15,7 +15,12 @@ namespace Parking.Services {
         }
 
         public Payment GetPayment(int id) {
-            return null;
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            Payment payment = conn.Query<Payment>("SELECT * FROM Payment WHERE Id = ?", id).FirstOrDefault();
+            if (payment == null) {
+                throw new Exception("Payment not found.");
+            }
+            return payment;
         }
 
         public void CreatePayment(Payment payment) {
