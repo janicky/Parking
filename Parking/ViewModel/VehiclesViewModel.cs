@@ -17,8 +17,14 @@ namespace Parking.ViewModel {
         // Fields
         private Vehicle _selectedVehicle;
 
+        // Details
+        private Visit _visit;
+
         // Model
         private readonly Vehicles Vehicles = new Vehicles();
+
+        // Commands
+        public SelectedVehicleCommand SelectedVehicleCommand { get; set; }
 
         private ObservableCollection<Vehicle> vehicles;
 
@@ -27,8 +33,14 @@ namespace Parking.ViewModel {
             set { _selectedVehicle = value; OnPropertyChanged("SelectedVehicle"); }
         }
 
+        public Visit VehicleVisit {
+            get => _visit;
+            set { _visit = value; OnPropertyChanged("Visit"); }
+        }
+
         public VehiclesViewModel() {
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
+            SelectedVehicleCommand = new SelectedVehicleCommand(this);
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
@@ -38,10 +50,6 @@ namespace Parking.ViewModel {
                 vehicles = value;
                 OnPropertyChanged("VehiclesCollection");
             }
-        }
-
-        public void OnSelectedVehicleChanged() {
-            MessageBox.Show("test");
         }
 
     }

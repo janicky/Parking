@@ -7,10 +7,10 @@ using System.Windows;
 using System.Windows.Input;
 
 namespace Parking.ViewModel.Commands {
-    class SelectVehicleCommand : ICommand {
+    class SelectedVehicleCommand : ICommand {
         public event EventHandler CanExecuteChanged;
 
-        public SelectVehicleCommand(VehiclesViewModel vm) {
+        public SelectedVehicleCommand(VehiclesViewModel vm) {
         }
 
         public bool CanExecute(object parameter) {

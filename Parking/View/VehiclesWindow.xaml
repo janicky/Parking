@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ViewModel="clr-namespace:Parking.ViewModel"
+        xmlns:ie="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="Parking" Height="500" Width="800">
     <Window.DataContext>
@@ -25,6 +26,11 @@
             </Grid.ColumnDefinitions>
 
             <ListBox ItemsSource="{Binding VehiclesCollection}" SelectedValue="{Binding SelectedVehicle}" Grid.Column="0">
+                <ie:Interaction.Triggers>
+                    <ie:EventTrigger EventName="SelectionChanged">
+                        <ie:InvokeCommandAction Command="{Binding SelectedVehicleCommand}"  CommandParameter="{Binding ElementName=myListBox, Path=SelectedItem}"/>
+                    </ie:EventTrigger>
+                </ie:Interaction.Triggers>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -56,17 +62,17 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Label Content="Identyfikator" Grid.Column="0"/>
-                        <Label Content="..." Grid.Column="1"/>
+                        <Label Content="{Binding Visit.Id}" Grid.Column="1"/>
                         <Label Content="Data rozpoczęcia" Grid.Column="0" Grid.Row="1" />
-                        <Label Content="..." Grid.Column="1" Grid.Row="1" />
+                        <Label Content="{Binding Visit.StartDate}" Grid.Column="1" Grid.Row="1" />
                         <Label Content="Data zakończenia" Grid.Column="0" Grid.Row="2" />
-                        <Label Content="..." Grid.Column="1" Grid.Row="2" />
+                        <Label Content="{Binding Visit.EndDate}" Grid.Column="1" Grid.Row="2" />
                         <Label Content="Czas trwania" Grid.Column="0" Grid.Row="3" />
                         <Label Content="..." Grid.Column="1" Grid.Row="3" />
                         <Label Content="Opłata" Grid.Column="0" Grid.Row="4" />
                         <Label Content="..." Grid.Column="1" Grid.Row="4" />
                         <Label Content="Zakończono?" Grid.Column="0" Grid.Row="5" />
-                        <Label Content="..." Grid.Column="1" Grid.Row="5" />
+                        <Label Content="{Binding Visit.Finished}" Grid.Column="1" Grid.Row="5" />
                     </Grid>
                 </StackPanel>
             </Grid>
