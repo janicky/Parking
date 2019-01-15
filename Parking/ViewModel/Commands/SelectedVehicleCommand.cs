@@ -26,6 +26,7 @@ namespace Parking.ViewModel.Commands {
                 vm.VehicleDetails.VisitStartDate = visit.StartDateTime.ToString();
                 vm.VehicleDetails.VisitEndDate = visit.EndDateTime.ToString();
                 vm.VehicleDetails.VisitDuration = (visit.AbsoluteEndTime - visit.StartDateTime).ToString();
+                vm.VehicleDetails.VisitPrice = visit.GetPrice().ToString();
                 vm.VehicleDetails.VisitFinished = visit.Finished;
             }
             vm.VehicleDetails.Visible = visit != null;

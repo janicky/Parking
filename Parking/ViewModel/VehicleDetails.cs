@@ -11,6 +11,7 @@ namespace Parking.ViewModel {
         private string _visitStartDate;
         private string _visitEndDate;
         private string _visitDuration;
+        private string _visitPrice;
         private bool _visitFinished;
 
         public bool Visible {
@@ -36,6 +37,11 @@ namespace Parking.ViewModel {
         public string VisitDuration {
             get => _visitDuration;
             set { _visitDuration = value; OnPropertyChanged("VisitDuration"); }
+        }
+
+        public string VisitPrice {
+            get => _visitPrice;
+            set { _visitPrice = value.ToString() + " PLN"; OnPropertyChanged("VisitPrice"); }
         }
 
         public bool VisitFinished {

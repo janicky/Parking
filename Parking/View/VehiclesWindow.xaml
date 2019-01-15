@@ -73,7 +73,7 @@
                         <Label Content="Czas trwania" Grid.Column="0" Grid.Row="3" />
                         <Label Content="{Binding VehicleDetails.VisitDuration}" Grid.Column="1" Grid.Row="3" />
                         <Label Content="Opłata" Grid.Column="0" Grid.Row="4" />
-                        <Label Content="..." Grid.Column="1" Grid.Row="4" />
+                        <Label Content="{Binding VehicleDetails.VisitPrice}" Grid.Column="1" Grid.Row="4" />
                         <Label Content="Zakończono?" Grid.Column="0" Grid.Row="5" />
                         <Label Content="{Binding VehicleDetails.VisitFinished}" Grid.Column="1" Grid.Row="5" />
                     </Grid>
