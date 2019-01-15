@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Vehicles.cs" />
     <Compile Include="ViewModel\VehiclesViewModel.cs" />
     <Compile Include="View\VehiclesWindow.xaml.cs">
       <DependentUpon>VehiclesWindow.xaml</DependentUpon>
@@ -95,13 +96,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Parking.Model\Parking.Model.csproj">
       <Project>{3eb957d5-2742-4ff0-b453-4d02f4216bf8}</Project>
       <Name>Parking.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.Services\Parking.Services.csproj">
+      <Project>{d719407c-e9aa-48cd-9058-bb533c92abe0}</Project>
+      <Name>Parking.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
