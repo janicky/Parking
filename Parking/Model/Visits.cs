@@ -18,6 +18,10 @@ namespace Parking.Model {
             return dataRepository.GetVisit(id);
         }
 
+        public Visit GetForVehicle(string id) {
+            return dataRepository.GetAllVisits().Find(v => v.VehicleId == id);
+        }
+
         public void Create(Visit visit) {
             dataRepository.CreateVisit(visit);
         }
