@@ -15,19 +15,19 @@ namespace Parking.Model {
             return dataRepository.GetAllVehicles();
         }
 
-        public Vehicle GetVehicle(string id) {
+        public Vehicle Get(string id) {
             return dataRepository.GetVehicle(id);
         }
 
-        public void CreateVehicle(Vehicle vehicle) {
+        public void Create(Vehicle vehicle) {
             dataRepository.CreateVehicle(vehicle);
         }
 
-        public void UpdateVehicle(Vehicle vehicle) {
+        public void Update(Vehicle vehicle) {
             dataRepository.UpdateVehicle(vehicle);
         }
 
-        public void DeleteVehicle(string id) {
+        public void Delete(string id) {
             dataRepository.DeleteVehicle(id);
         }
     }
