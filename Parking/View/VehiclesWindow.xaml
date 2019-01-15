@@ -18,15 +18,22 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <ListBox ItemsSource="{Binding VehiclesCollection}" Grid.Column="0" Grid.Row="0">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Id}"/>
-                        <Label Content="{Binding VehicleTypeName}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <ListBox ItemsSource="{Binding VehiclesCollection}" Grid.Column="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Id}"/>
+                            <Label Content="{Binding VehicleTypeName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </Window>
