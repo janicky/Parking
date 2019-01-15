@@ -29,6 +29,13 @@ namespace Parking.Services {
         }
 
         public void DeleteVisit(int id) {
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            var existingVisit = GetVisit(id);
+            if (existingVisit != null) {
+                conn.RunInTransaction(() => {
+                    conn.Delete(existingVisit);
+                });
+            }
         }
     }
 }
