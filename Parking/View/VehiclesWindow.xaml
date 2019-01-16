@@ -31,7 +31,7 @@
             <ListBox ItemsSource="{Binding VehiclesCollection}" SelectedValue="{Binding SelectedVehicle}" Grid.Column="0">
                 <ie:Interaction.Triggers>
                     <ie:EventTrigger EventName="SelectionChanged">
-                        <ie:InvokeCommandAction Command="{Binding SelectedVehicleCommand}"  CommandParameter="{Binding ElementName=myListBox, Path=SelectedItem}"/>
+                        <ie:InvokeCommandAction Command="{Binding SelectVehicleCommand}"  CommandParameter="{Binding ElementName=myListBox, Path=SelectedItem}"/>
                     </ie:EventTrigger>
                 </ie:Interaction.Triggers>
                 <ListBox.ItemTemplate>

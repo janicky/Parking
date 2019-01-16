@@ -27,7 +27,8 @@ namespace Parking.ViewModel {
         public readonly Visits Visits = new Visits();
 
         // Commands
-        public SelectVehicleCommand SelectedVehicleCommand { get; set; }
+        public SelectVehicleCommand SelectVehicleCommand { get; set; }
+        public StartVisitCommand StartVisitCommand { get; set; }
 
         private ObservableCollection<Vehicle> vehicles;
 
@@ -51,7 +52,8 @@ namespace Parking.ViewModel {
 
         public VehiclesViewModel() {
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
-            SelectedVehicleCommand = new SelectVehicleCommand(this);
+            SelectVehicleCommand = new SelectVehicleCommand(this);
+            StartVisitCommand = new StartVisitCommand();
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
