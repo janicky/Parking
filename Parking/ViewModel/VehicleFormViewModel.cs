@@ -49,6 +49,11 @@ namespace Parking.ViewModel {
             this.OnSaveMethod = OnSaveMethod;
             Title = title;
             Button = button;
+
+            if (vehicle != null) {
+                Id = vehicle.Id;
+                VehicleType = vehicle.VehicleType - 1;
+            }
         }
 
         public void HandleSave() {
