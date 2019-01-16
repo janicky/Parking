@@ -11,9 +11,17 @@ namespace Parking.Model {
     public class Vehicle : Model {
         public enum Type { Car = 1, Motorcycle = 2 }
 
+        private string plate;
         private Type vehicleType;
+        
         [PrimaryKey]
-        public string Id { get; set; }
+        public int Id { get; set; }
+
+        public string Plate {
+            get => plate;
+            set { plate = value; OnPropertyChanged("Plate"); }
+        }
+
         public int VehicleType {
             get => (int) vehicleType;
             set { vehicleType = (Type)value; OnPropertyChanged("VehicleType"); }
@@ -36,8 +44,9 @@ namespace Parking.Model {
 
         }
 
-        public Vehicle(string id, Type type) {
+        public Vehicle(int id, string plate, Type type) {
             Id = id;
+            Plate = plate;
             VehicleType = (int) type;
         }
     }

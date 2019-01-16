@@ -30,7 +30,7 @@ namespace Parking.Model {
                 endDate = DateTimeOffset.FromUnixTimeSeconds(value);
             }
         }
-        public string VehicleId { get; set; }
+        public int VehicleId { get; set; }
         public int PaymentId { get; set; }
         public bool Finished { get; set; }
 
@@ -52,7 +52,7 @@ namespace Parking.Model {
 
         }
 
-        public Visit(int id, string vehicleId, long startDate, long endDate = 0, int paymentId = 0) {
+        public Visit(int id, int vehicleId, long startDate, long endDate = 0, int paymentId = 0) {
             Id = id;
             VehicleId = vehicleId;
             PaymentId = paymentId;

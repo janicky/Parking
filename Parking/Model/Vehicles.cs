@@ -15,12 +15,12 @@ namespace Parking.Model {
             return dataRepository.GetAllVehicles();
         }
 
-        public Vehicle Get(string id) {
+        public Vehicle Get(int id) {
             return dataRepository.GetVehicle(id);
         }
 
-        public Vehicle Create(string id, int vehicleType) {
-            Vehicle vehicle = new Vehicle(id, (Vehicle.Type) vehicleType);
+        public Vehicle Create(string plate, int vehicleType) {
+            Vehicle vehicle = new Vehicle(-1, plate, (Vehicle.Type) vehicleType);
             dataRepository.CreateVehicle(vehicle);
             return vehicle;
         }
@@ -29,7 +29,7 @@ namespace Parking.Model {
             dataRepository.UpdateVehicle(vehicle);
         }
 
-        public void Delete(string id) {
+        public void Delete(int id) {
             dataRepository.DeleteVehicle(id);
         }
     }

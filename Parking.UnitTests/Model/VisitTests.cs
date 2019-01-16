@@ -11,7 +11,7 @@ namespace Parking.UnitTests.Model {
 
         [TestInitialize]
         public void TestInitialize() {
-            vehicle = new Vehicle("xxx", Vehicle.Type.Car);
+            vehicle = new Vehicle(1, "xxx", Vehicle.Type.Car);
             DateTimeOffset datetime = DateTimeOffset.Now.AddHours(-5);
             visit = new Visit(1, vehicle.Id, datetime.ToUnixTimeSeconds());
         }
@@ -31,7 +31,7 @@ namespace Parking.UnitTests.Model {
         public void CorrectlyFinish() {
             var payment = new Payment(2, 100d);
             Assert.AreEqual(false, visit.Finished);
-            visit.Finish(payment);
+            visit.Finish();
             Assert.AreEqual(true, visit.Finished);
         }
     }

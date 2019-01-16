@@ -14,7 +14,7 @@ namespace Parking.UnitTests.Model {
 
         [TestMethod]
         public void TestInitialize() {
-            vehicle = new Vehicle("evt2103", Vehicle.Type.Car);
+            vehicle = new Vehicle(1, "evt2103", Vehicle.Type.Car);
             visit = new Visit(1, vehicle.Id, 1, DateTimeOffset.Now.ToUnixTimeSeconds());
         }
     }

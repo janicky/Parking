@@ -8,36 +8,38 @@ namespace Parking.UnitTests.Services {
     [TestClass]
     public class VehiclesRepositoryTests {
         private DataRepository dr = new DataRepository();
+        private Vehicle veh;
 
         [TestInitialize]
         public void InitializeTest() {
             dr.Clear();
-            dr.CreateVehicle(new Vehicle("XXX001", Vehicle.Type.Car));
+            veh = new Vehicle(1, "XXX001", Vehicle.Type.Car);
+            dr.CreateVehicle(veh);
         }
 
         [TestMethod]
         public void CorrectlyReturnsAllVehicles() {
             List<Vehicle> vehicles = dr.GetAllVehicles();
             Assert.AreEqual(1, vehicles.Count);
-            Assert.AreEqual("XXX001", vehicles[0].Id);
+            Assert.AreEqual("XXX001", vehicles[0].Plate);
             Assert.AreEqual(1, vehicles[0].VehicleType);
         }
 
         [TestMethod]
         public void CorrectlyReturnsSpecifiedVehicle() {
-            Vehicle vehicle = dr.GetVehicle("XXX001");
-            Assert.AreEqual("XXX001", vehicle.Id);
+            Vehicle vehicle = dr.GetVehicle(veh.Id);
+            Assert.AreEqual("XXX001", vehicle.Plate);
         }
 
         [TestMethod]
         [ExpectedException(typeof(Exception), "Vehicle not found.")]
         public void ThrowsExceptionOnInvalidVehicle() {
-            Vehicle vehicle = dr.GetVehicle("INVALID");
+            Vehicle vehicle = dr.GetVehicle(-1);
         }
 
         [TestMethod]
         public void CorrectlyCreateAndDeleteVehicle() {
-            Vehicle vehicle = new Vehicle("YYY002", Vehicle.Type.Motorcycle);
+            Vehicle vehicle = new Vehicle(2, "YYY002", Vehicle.Type.Motorcycle);
             Assert.AreEqual(1, dr.GetAllVehicles().Count);
             dr.CreateVehicle(vehicle);
             Assert.AreEqual(2, dr.GetAllVehicles().Count);
@@ -47,12 +49,12 @@ namespace Parking.UnitTests.Services {
 
         [TestMethod]
         public void CorrectlyUpdateVehicle() {
-            Vehicle vehicle = dr.GetVehicle("XXX001");
+            Vehicle vehicle = dr.GetVehicle(veh.Id);
             Assert.AreEqual(1, vehicle.VehicleType);
             vehicle.VehicleType = (int) Vehicle.Type.Motorcycle;
             dr.UpdateVehicle(vehicle);
 
-            Vehicle updated_vehicle = dr.GetVehicle("XXX001");
+            Vehicle updated_vehicle = dr.GetVehicle(veh.Id);
             Assert.AreEqual(2, updated_vehicle.VehicleType);
         }
     }

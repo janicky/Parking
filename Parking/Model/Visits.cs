@@ -18,11 +18,11 @@ namespace Parking.Model {
             return dataRepository.GetVisit(id);
         }
 
-        public Visit GetForVehicle(string id) {
+        public Visit GetForVehicle(int id) {
             return dataRepository.GetAllVisits().LastOrDefault(v => v.VehicleId == id);
         }
 
-        public Visit Create(string vehicleId) {
+        public Visit Create(int vehicleId) {
             Visit visit = new Visit(-1, vehicleId, DateTimeOffset.Now.ToUnixTimeSeconds());
             dataRepository.CreateVisit(visit);
             return visit;

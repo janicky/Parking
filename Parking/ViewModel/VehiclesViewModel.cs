@@ -133,8 +133,8 @@ namespace Parking.ViewModel {
             AddVehicleWindow.Closing += OnAddWindowClose;
         }
 
-        public void HandleAddVehicle(string id, int vehicleType) {
-            Vehicle vehicle = Vehicles.Create(id, vehicleType);
+        public void HandleAddVehicle(string plate, int vehicleType) {
+            Vehicle vehicle = Vehicles.Create(plate, vehicleType);
             VehiclesCollection.Add(vehicle);
         }
 

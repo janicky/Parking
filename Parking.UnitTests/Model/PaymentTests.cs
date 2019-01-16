@@ -7,7 +7,7 @@ namespace Parking.UnitTests.Model {
     public class PaymentTests {
         [TestMethod]
         public void CorrectlyInitialize() {
-            Vehicle vehicle = new Vehicle("yyy", Vehicle.Type.Motorcycle);
+            Vehicle vehicle = new Vehicle(1, "yyy", Vehicle.Type.Motorcycle);
             DateTimeOffset datetime = DateTimeOffset.Now.AddHours(-2);
             Payment payment = new Payment(1, 100d);
         }

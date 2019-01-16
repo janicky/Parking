@@ -16,7 +16,7 @@ namespace Parking.Services {
             return new List<Vehicle>(conn.Table<Vehicle>());
         }
 
-        public Vehicle GetVehicle(string id) {
+        public Vehicle GetVehicle(int id) {
             SQLiteConnection conn = new SQLiteConnection(connectionString);
             Vehicle vehicle = conn.Query<Vehicle>("SELECT * FROM Vehicle WHERE Id = ?", id).FirstOrDefault();
             if (vehicle == null) {
@@ -43,7 +43,7 @@ namespace Parking.Services {
             }
         }
 
-        public void DeleteVehicle(string id) {
+        public void DeleteVehicle(int id) {
             SQLiteConnection conn = new SQLiteConnection(connectionString);
             var existingVehicle = GetVehicle(id);
             if (existingVehicle != null) {
