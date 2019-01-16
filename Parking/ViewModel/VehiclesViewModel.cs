@@ -13,7 +13,7 @@ using Parking.ViewModel.Helpers;
 using Parking.View;
 
 namespace Parking.ViewModel {
-    
+
     class VehiclesViewModel : ViewModel {
 
         // Fields
@@ -33,6 +33,7 @@ namespace Parking.ViewModel {
         public SelectVehicleCommand SelectVehicleCommand { get; set; }
         public StartVisitCommand StartVisitCommand { get; set; }
         public DeleteVehicleCommand DeleteVehicleCommand { get; set; }
+        public AddVehicleCommand AddVehicleCommand { get; set; }
 
         public EndVisitCommand EndVisitCommand { get; set; }
 
@@ -67,6 +68,7 @@ namespace Parking.ViewModel {
             StartVisitCommand = new StartVisitCommand(this);
             EndVisitCommand = new EndVisitCommand(this);
             DeleteVehicleCommand = new DeleteVehicleCommand(this);
+            AddVehicleCommand = new AddVehicleCommand(this);
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
@@ -109,6 +111,10 @@ namespace Parking.ViewModel {
             Vehicles.Delete(SelectedVehicle.Id);
             VehiclesCollection.Remove(SelectedVehicle);
             CanStartVisit = false;
+        }
+
+        public void OnAddWindowClose(object sender, CancelEventArgs e) {
+            AddVehicleWindow = null;
         }
     }
 }

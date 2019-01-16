@@ -18,7 +18,7 @@ namespace Parking.View {
     /// </summary>
     public partial class VehicleFormWindow : Window {
         public VehicleFormWindow() {
-            //InitializeComponent();
+            InitializeComponent();
         }
     }
 }
