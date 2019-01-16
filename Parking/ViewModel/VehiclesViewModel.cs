@@ -30,6 +30,7 @@ namespace Parking.ViewModel {
         // Commands
         public SelectVehicleCommand SelectVehicleCommand { get; set; }
         public StartVisitCommand StartVisitCommand { get; set; }
+        public DeleteVehicleCommand DeleteVehicleCommand { get; set; }
 
         public EndVisitCommand EndVisitCommand { get; set; }
 
@@ -58,6 +59,7 @@ namespace Parking.ViewModel {
             SelectVehicleCommand = new SelectVehicleCommand(this);
             StartVisitCommand = new StartVisitCommand(this);
             EndVisitCommand = new EndVisitCommand(this);
+            DeleteVehicleCommand = new DeleteVehicleCommand(this);
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
@@ -93,5 +95,9 @@ namespace Parking.ViewModel {
             Visits.Update(visit);
         }
 
+        public void DeleteVehicle() {
+            VehiclesCollection.Remove(SelectedVehicle);
+            Vehicles.Delete(SelectedVehicle.Id);
+        }
     }
 }
