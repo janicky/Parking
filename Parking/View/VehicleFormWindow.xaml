@@ -11,11 +11,11 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="120" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="{Binding Title}" FontSize="25" Padding="10" HorizontalAlignment="Center" />
+        <Label Grid.Row="0" Content="{Binding Title}" FontSize="25" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -32,7 +32,7 @@
             <Label Content="Numer rejestracyjny" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" />
             <TextBox Grid.Row="0" Grid.Column="1" Width="Auto" Margin="5,0,15,0" Padding="5" FontSize="16" VerticalAlignment="Center" />
 
-            <Label Content="{Binding VehicleType}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" />
+            <Label Content="Typ pojazdu" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" />
             <ComboBox Grid.Row="1" Grid.Column="1" Margin="5,0,15,0" VerticalAlignment="Center" Padding="5" SelectedIndex="{Binding VehicleType}">
                 <ComboBoxItem>Samochód</ComboBoxItem>
                 <ComboBoxItem>Motocykl</ComboBoxItem>
