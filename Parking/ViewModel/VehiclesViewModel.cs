@@ -30,6 +30,8 @@ namespace Parking.ViewModel {
         public SelectVehicleCommand SelectVehicleCommand { get; set; }
         public StartVisitCommand StartVisitCommand { get; set; }
 
+        public EndVisitCommand EndVisitCommand { get; set; }
+
         private ObservableCollection<Vehicle> vehicles;
 
         public bool CanStartVisit {
@@ -54,6 +56,7 @@ namespace Parking.ViewModel {
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
             SelectVehicleCommand = new SelectVehicleCommand(this);
             StartVisitCommand = new StartVisitCommand(this);
+            EndVisitCommand = new EndVisitCommand(this);
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
