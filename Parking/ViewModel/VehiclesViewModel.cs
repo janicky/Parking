@@ -65,5 +65,21 @@ namespace Parking.ViewModel {
             }
         }
 
+        // Command <=> ViewModel
+        private Visit GetVisitForSelectedVehicle() {
+            return Visits.GetForVehicle(SelectedVehicle.Id);
+        }
+
+        public void UpdateVehicleDetails() {
+            Visit visit = GetVisitForSelectedVehicle();
+            bool unfinishedVisit = false;
+            if (visit != null) {
+                VehicleDetails.Update(visit);
+                unfinishedVisit = !visit.Finished;
+            }
+            VehicleDetails.Visible = visit != null;
+            CanStartVisit = !unfinishedVisit;
+        }
+
     }
 }

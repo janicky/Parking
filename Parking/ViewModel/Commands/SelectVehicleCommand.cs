@@ -20,14 +20,7 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            var visit = vm.Visits.GetForVehicle(vm.SelectedVehicle.Id);
-            bool unfinishedVisit = false;
-            if (visit != null) {
-                vm.VehicleDetails.Update(visit);
-                unfinishedVisit = !visit.Finished;
-            }
-            vm.VehicleDetails.Visible = visit != null;
-            vm.CanStartVisit = !unfinishedVisit;
+            vm.UpdateVehicleDetails();
         }
     }
 }
