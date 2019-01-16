@@ -104,6 +104,7 @@
     <Compile Include="ViewModel\Commands\DeleteVehicleCommand.cs" />
     <Compile Include="ViewModel\Commands\SaveVehicleFormCommand.cs" />
     <Compile Include="ViewModel\Commands\StartVisitCommand.cs" />
+    <Compile Include="ViewModel\Common\ICloseable.cs" />
     <Compile Include="ViewModel\Helpers\VehicleDetails.cs" />
     <Compile Include="Model\Vehicles.cs" />
     <Compile Include="Model\Visits.cs" />
