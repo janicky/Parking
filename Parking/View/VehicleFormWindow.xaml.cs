@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Parking.ViewModel.Common;
 
 namespace Parking.View {
     /// <summary>
@@ -19,6 +20,11 @@ namespace Parking.View {
     public partial class VehicleFormWindow : Window {
         public VehicleFormWindow() {
             InitializeComponent();
+            Loaded += (s, e) => {
+                if (DataContext is ICloseable) {
+                    (DataContext as ICloseable).RequestClose += (_, __) => this.Close();
+                }
+            };
         }
     }
 }

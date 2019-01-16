@@ -11,10 +11,11 @@ using Parking.Model;
 using Parking.ViewModel.Commands;
 using Parking.ViewModel.Helpers;
 using Parking.View;
+using Parking.ViewModel.Common;
 
 namespace Parking.ViewModel {
 
-    class VehiclesViewModel : ViewModel {
+    class VehiclesViewModel : ViewModel, ICloseable {
 
         // Fields
         private Vehicle _selectedVehicle;
@@ -38,6 +39,9 @@ namespace Parking.ViewModel {
         public EndVisitCommand EndVisitCommand { get; set; }
 
         private ObservableCollection<Vehicle> vehicles;
+
+        public event EventHandler<EventArgs> RequestClose;
+        public ICommand CloseCommand { get; private set; }
 
         public bool CanStartVisit {
             get => _canStartVisit;
