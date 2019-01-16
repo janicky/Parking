@@ -73,6 +73,9 @@ namespace Parking.ViewModel {
 
         // Command <=> ViewModel
         public Visit GetVisitForSelectedVehicle() {
+            if (SelectedVehicle == null) {
+                return null;
+            }
             return Visits.GetForVehicle(SelectedVehicle.Id);
         }
 
@@ -96,8 +99,9 @@ namespace Parking.ViewModel {
         }
 
         public void DeleteVehicle() {
-            VehiclesCollection.Remove(SelectedVehicle);
             Vehicles.Delete(SelectedVehicle.Id);
+            VehiclesCollection.Remove(SelectedVehicle);
+            CanStartVisit = false;
         }
     }
 }

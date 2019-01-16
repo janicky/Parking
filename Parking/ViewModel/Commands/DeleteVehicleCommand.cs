@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Parking.Model;
 
@@ -23,7 +24,10 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            vm.DeleteVehicle();
+            MessageBoxResult result = MessageBox.Show("Czy aby na pewno chcesz usunąć ten pojazd?", "Potwierdzenie usunięcia", System.Windows.MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes) {
+                vm.DeleteVehicle();
+            }
         }
     }
 }
