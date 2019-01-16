@@ -8,7 +8,7 @@ using SQLite;
 namespace Parking.Model {
     public class Payment {
         private DateTimeOffset date;
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public double Value { get; set; }
         public long Date {

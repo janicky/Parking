@@ -11,7 +11,7 @@ namespace Parking.Model {
         private DateTimeOffset startDate;
         private DateTimeOffset endDate;
 
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         // Datetime in unix time
         public long StartDate {
