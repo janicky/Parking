@@ -7,11 +7,11 @@ using System.Windows;
 using System.Windows.Input;
 
 namespace Parking.ViewModel.Commands {
-    class SelectedVehicleCommand : ICommand {
+    class SelectVehicleCommand : ICommand {
         public event EventHandler CanExecuteChanged;
         private VehiclesViewModel vm;
 
-        public SelectedVehicleCommand(VehiclesViewModel vm) {
+        public SelectVehicleCommand(VehiclesViewModel vm) {
             this.vm = vm;
         }
 

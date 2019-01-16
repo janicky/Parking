@@ -98,7 +98,7 @@
     <Compile Include="ViewModel\Helpers\VehicleDetails.cs" />
     <Compile Include="Model\Vehicles.cs" />
     <Compile Include="Model\Visits.cs" />
-    <Compile Include="ViewModel\Commands\SelectedVehicleCommand.cs" />
+    <Compile Include="ViewModel\Commands\SelectVehicleCommand.cs" />
     <Compile Include="ViewModel\VehiclesViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\VehiclesWindow.xaml.cs">
