@@ -17,8 +17,10 @@ namespace Parking.Model {
             return dataRepository.GetPayment(id);
         }
 
-        public void Create(Payment payment) {
+        public Payment Create(double price) {
+            Payment payment = new Payment(-1, price);
             dataRepository.CreatePayment(payment);
+            return payment;
         }
 
         public void Update(Payment payment) {

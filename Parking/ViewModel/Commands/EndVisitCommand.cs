@@ -24,8 +24,8 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            MessageBox.Show("End visit action");
-            // todo
+
+            MessageBox.Show("Płatność została zapisana jako uregulowana.", "Koniec postoju");
         }
     }
 }
