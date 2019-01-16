@@ -4,17 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Parking.Model;
 
 namespace Parking.ViewModel.Commands {
     class StartVisitCommand : ICommand {
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
+
+        private VehiclesViewModel vm;
+        public StartVisitCommand(VehiclesViewModel vm) {
+            this.vm = vm;
+        }
 
         public bool CanExecute(object parameter) {
-            throw new NotImplementedException();
+            return vm.CanStartVisit;
         }
 
         public void Execute(object parameter) {
-            throw new NotImplementedException();
+            //Visit visit = vm.Visits.Create(vm.SelectedVehicle.Id);
+            vm.CanStartVisit = false;
         }
     }
 }

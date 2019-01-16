@@ -84,7 +84,7 @@
                 <Border Grid.Row="1" Visibility="{Binding VehicleDetails.Hidden, Converter={StaticResource BoolToVisibilityConverter}}" Background="LightGray" BorderThickness="1" CornerRadius="15" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15,5" Opacity="0.55">
                     <Label Content="Brak wizyt dla tego pojazdu." />
                 </Border>
-                <Button Grid.Row="2" Visibility="{Binding CanStartVisit, Converter={StaticResource BoolToVisibilityConverter}}" Content="Rozpocznij wizytę" Background="ForestGreen" Foreground="White"/>
+                <Button Grid.Row="2" Command="{Binding StartVisitCommand}" Visibility="{Binding CanStartVisit, Converter={StaticResource BoolToVisibilityConverter}}" Content="Rozpocznij wizytę" Background="ForestGreen" Foreground="White"/>
                 <Button Grid.Row="2" Visibility="{Binding CanEndVisit, Converter={StaticResource BoolToVisibilityConverter}}" Content="Przyjmij opłatę i zakończ" Background="OrangeRed" Foreground="White"/>
             </Grid>
         </Grid>

@@ -22,8 +22,10 @@ namespace Parking.Model {
             return dataRepository.GetAllVisits().LastOrDefault(v => v.VehicleId == id);
         }
 
-        public void Create(Visit visit) {
+        public Visit Create(string vehicleId) {
+            Visit visit = new Visit(-1, vehicleId, DateTimeOffset.Now.ToUnixTimeSeconds());
             dataRepository.CreateVisit(visit);
+            return visit;
         }
 
         public void Update(Visit visit) {

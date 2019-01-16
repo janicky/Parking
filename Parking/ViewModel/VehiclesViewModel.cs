@@ -53,7 +53,7 @@ namespace Parking.ViewModel {
         public VehiclesViewModel() {
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
             SelectVehicleCommand = new SelectVehicleCommand(this);
-            StartVisitCommand = new StartVisitCommand();
+            StartVisitCommand = new StartVisitCommand(this);
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
