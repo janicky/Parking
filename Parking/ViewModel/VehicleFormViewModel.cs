@@ -14,7 +14,7 @@ namespace Parking.ViewModel {
 
         private string _title = "Formularz pojazdu";
         private string _button = "Zapisz";
-        private string _id;
+        private string _plate;
         private int _vehicleType = 0;
 
         private Action<string, int> OnSaveMethod;
@@ -34,9 +34,9 @@ namespace Parking.ViewModel {
             set { _button = value; OnPropertyChanged("Button"); }
         }
 
-        public string Id {
-            get => _id;
-            set { _id = value; OnPropertyChanged("Id"); }
+        public string Plate {
+            get => _plate;
+            set { _plate = value; OnPropertyChanged("Plate"); }
         }
 
         public int VehicleType {
@@ -51,14 +51,14 @@ namespace Parking.ViewModel {
             Button = button;
 
             if (vehicle != null) {
-                Id = vehicle.Id;
+                Plate = vehicle.Plate;
                 VehicleType = vehicle.VehicleType - 1;
             }
         }
 
         public void HandleSave() {
             RequestClose.Invoke(this, EventArgs.Empty);
-            OnSaveMethod(Id, VehicleType + 1);
+            OnSaveMethod(Plate, VehicleType + 1);
         }
 
 

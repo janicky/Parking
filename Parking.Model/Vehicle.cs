@@ -14,7 +14,7 @@ namespace Parking.Model {
         private string plate;
         private Type vehicleType;
         
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public string Plate {

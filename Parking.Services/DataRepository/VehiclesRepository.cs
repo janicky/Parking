@@ -36,6 +36,7 @@ namespace Parking.Services {
             SQLiteConnection conn = new SQLiteConnection(connectionString);
             var existingVehicle = GetVehicle(vehicle.Id);
             if (existingVehicle != null) {
+                existingVehicle.Plate = vehicle.Plate;
                 existingVehicle.VehicleType = vehicle.VehicleType;
                 conn.RunInTransaction(() => {
                     conn.Update(existingVehicle);

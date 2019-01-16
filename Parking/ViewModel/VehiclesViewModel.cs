@@ -150,9 +150,10 @@ namespace Parking.ViewModel {
             EditVehicleWindow.Closing += OnEditWindowClose;
         }
 
-        public void HandleEditVehicle(string id, int vehicleType) {
+        public void HandleEditVehicle(string plate, int vehicleType) {
             var item = VehiclesCollection.FirstOrDefault(i => i.Id == SelectedVehicle.Id);
             if (item != null) {
+                item.Plate = plate;
                 item.VehicleType = vehicleType;
                 Vehicles.Update(SelectedVehicle);
             }

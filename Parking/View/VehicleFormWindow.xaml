@@ -28,7 +28,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="Numer rejestracyjny" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            <TextBox Text="{Binding Id}" Grid.Row="0" Grid.Column="1" Width="Auto" Margin="5,0,15,0" Padding="5" FontSize="16" VerticalAlignment="Center" />
+            <TextBox Text="{Binding Plate}" Grid.Row="0" Grid.Column="1" Width="Auto" Margin="5,0,15,0" Padding="5" FontSize="16" VerticalAlignment="Center" />
 
             <Label Content="Typ pojazdu" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" />
             <ComboBox Grid.Row="1" Grid.Column="1" Margin="5,0,15,0" VerticalAlignment="Center" Padding="5" SelectedIndex="{Binding VehicleType}">

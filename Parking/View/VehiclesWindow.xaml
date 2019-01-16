@@ -38,6 +38,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{Binding Id}"/>
+                            <Label Content="{Binding Plate}"/>
                             <Label Content="{Binding VehicleTypeName}"/>
                         </StackPanel>
                     </DataTemplate>
