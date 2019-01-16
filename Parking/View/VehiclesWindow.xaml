@@ -18,11 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="6*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-
-        <Grid>
+        
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -48,9 +48,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="100" />
                 </Grid.RowDefinitions>
-                <Border Padding="5" Background="DarkGray" VerticalAlignment="Center">
+                <Border Padding="6" Background="DarkGray" VerticalAlignment="Center">
                     <Label Content="Ostatni status pojazdu" Grid.Row="0" FontWeight="Bold" Foreground="White" />
                 </Border>
                 <StackPanel Margin="5" Grid.Row="1">
@@ -87,6 +87,16 @@
                 <Button Grid.Row="2" Command="{Binding StartVisitCommand}" Visibility="{Binding CanStartVisit, Converter={StaticResource BoolToVisibilityConverter}}" Content="Rozpocznij wizytę" Background="ForestGreen" Foreground="White"/>
                 <Button Grid.Row="2" Command="{Binding EndVisitCommand}" Visibility="{Binding CanEndVisit, Converter={StaticResource BoolToVisibilityConverter}}" Content="Przyjmij opłatę i zakończ" Background="OrangeRed" Foreground="White"/>
             </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Nowy pojazd" />
+            <Button Grid.Column="1" Content="Edytuj zaznaczony" />
+            <Button Grid.Column="2" Content="Usuń zaznaczony" />
         </Grid>
     </Grid>
 </Window>
