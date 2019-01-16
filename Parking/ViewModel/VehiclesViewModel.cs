@@ -113,6 +113,12 @@ namespace Parking.ViewModel {
             CanStartVisit = false;
         }
 
+        public void AddVehicle() {
+            AddVehicleWindow = new VehicleFormWindow();
+            AddVehicleWindow.Show();
+            AddVehicleWindow.Closing += OnAddWindowClose;
+        }
+
         public void OnAddWindowClose(object sender, CancelEventArgs e) {
             AddVehicleWindow = null;
         }

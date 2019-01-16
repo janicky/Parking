@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using Parking.Model;
-using Parking.View;
 
 namespace Parking.ViewModel.Commands {
     class AddVehicleCommand : ICommand {
@@ -25,9 +23,7 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            vm.AddVehicleWindow = new VehicleFormWindow();
-            vm.AddVehicleWindow.Show();
-            vm.AddVehicleWindow.Closing += vm.OnAddWindowClose;
+            vm.AddVehicle();
         }
     }
 }
