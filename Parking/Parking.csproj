@@ -95,7 +95,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Payments.cs" />
-    <Compile Include="ViewModel\VehicleDetails.cs" />
+    <Compile Include="ViewModel\Helpers\VehicleDetails.cs" />
     <Compile Include="Model\Vehicles.cs" />
     <Compile Include="Model\Visits.cs" />
     <Compile Include="ViewModel\Commands\SelectedVehicleCommand.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parking.ViewModel {
+namespace Parking.ViewModel.Helpers {
     class VehicleDetails : ViewModel {
         private bool _visible;
         private int _visitId;

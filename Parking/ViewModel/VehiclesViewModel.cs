@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using Parking.Model;
 using Parking.ViewModel.Commands;
+using Parking.ViewModel.Helpers;
 
 namespace Parking.ViewModel {
     
