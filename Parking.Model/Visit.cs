@@ -44,7 +44,7 @@ namespace Parking.Model {
 
         public DateTimeOffset AbsoluteEndTime {
             get {
-                return (EndDate != 0 ? endDate : DateTimeOffset.Now);
+                return (Finished ? endDate : DateTimeOffset.Now);
             }
         }
 

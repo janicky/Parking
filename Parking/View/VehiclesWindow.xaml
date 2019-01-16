@@ -46,11 +46,13 @@
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
-                <Label Content="Ostatni status pojazdu" Grid.Row="0" FontWeight="Bold" />
+                <Border Padding="5" Background="DarkGray" VerticalAlignment="Center">
+                    <Label Content="Ostatni status pojazdu" Grid.Row="0" FontWeight="Bold" Foreground="White" />
+                </Border>
                 <StackPanel Margin="5" Grid.Row="1">
                     <Grid Visibility="{Binding VehicleDetails.Visible, Converter={StaticResource BoolToVisibilityConverter}}">
                         <Grid.ColumnDefinitions>
