@@ -95,7 +95,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="Nowy pojazd" Command="{Binding AddVehicleCommand}" />
-            <Button Grid.Column="1" Content="Edytuj zaznaczony" />
+            <Button Grid.Column="1" Content="Edytuj zaznaczony" Command="{Binding EditVehicleCommand}" />
             <Button Grid.Column="2" Content="Usuń zaznaczony" Command="{Binding DeleteVehicleCommand}" />
         </Grid>
     </Grid>

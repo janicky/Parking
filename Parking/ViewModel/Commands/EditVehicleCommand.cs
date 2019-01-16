@@ -19,11 +19,11 @@ namespace Parking.ViewModel.Commands {
         }
 
         public bool CanExecute(object parameter) {
-            return true;
+            return vm.SelectedVehicle != null && vm.EditVehicleWindow == null;
         }
 
         public void Execute(object parameter) {
-
+            vm.EditVehicle();
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Parking.ViewModel {
         private Vehicle _selectedVehicle;
         private bool _canStartVisit = false;
         private VehicleFormWindow _addVehicleWindow;
+        private VehicleFormWindow _editVehicleWindow;
 
         // Details
         private VehicleDetails _vehicleDetails = new VehicleDetails();
@@ -35,6 +36,7 @@ namespace Parking.ViewModel {
         public StartVisitCommand StartVisitCommand { get; set; }
         public DeleteVehicleCommand DeleteVehicleCommand { get; set; }
         public AddVehicleCommand AddVehicleCommand { get; set; }
+        public EditVehicleCommand EditVehicleCommand { get; set; }
 
         public EndVisitCommand EndVisitCommand { get; set; }
 
@@ -66,6 +68,11 @@ namespace Parking.ViewModel {
             set { _addVehicleWindow = value; OnPropertyChanged("AddVehicleWindow"); }
         }
 
+        public VehicleFormWindow EditVehicleWindow {
+            get => _editVehicleWindow;
+            set { _editVehicleWindow = value; OnPropertyChanged("EditVehicleWindow"); }
+        }
+
         public VehiclesViewModel() {
             VehiclesCollection = new ObservableCollection<Vehicle>(Vehicles.All());
             SelectVehicleCommand = new SelectVehicleCommand(this);
@@ -73,6 +80,7 @@ namespace Parking.ViewModel {
             EndVisitCommand = new EndVisitCommand(this);
             DeleteVehicleCommand = new DeleteVehicleCommand(this);
             AddVehicleCommand = new AddVehicleCommand(this);
+            EditVehicleCommand = new EditVehicleCommand(this);
         }
 
         public ObservableCollection<Vehicle> VehiclesCollection {
@@ -131,6 +139,10 @@ namespace Parking.ViewModel {
 
         public void OnAddWindowClose(object sender, CancelEventArgs e) {
             AddVehicleWindow = null;
+        }
+
+        public void EditVehicle() {
+
         }
     }
 }
