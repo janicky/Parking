@@ -16,6 +16,7 @@ namespace Parking.ViewModel {
 
         // Fields
         private Vehicle _selectedVehicle;
+        private bool _canStartVisit = false;
 
         // Details
         private VehicleDetails _vehicleDetails = new VehicleDetails();
@@ -28,6 +29,14 @@ namespace Parking.ViewModel {
         public SelectedVehicleCommand SelectedVehicleCommand { get; set; }
 
         private ObservableCollection<Vehicle> vehicles;
+
+        public bool CanStartVisit {
+            get => _canStartVisit;
+            set { _canStartVisit = value; OnPropertyChanged("CanStartVisit"); OnPropertyChanged("CanEndVisit"); }
+        }
+        public bool CanEndVisit {
+            get => !_canStartVisit;
+        }
 
         public Vehicle SelectedVehicle {
             get => _selectedVehicle;
