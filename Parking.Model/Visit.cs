@@ -70,7 +70,7 @@ namespace Parking.Model {
             return (GetDuration() + 1) * price;
         }
 
-        public void Finish(Payment payment) {
+        public void Finish() {
             if (Finished) {
                 throw new Exception("The visit has already been finished.");
             }
