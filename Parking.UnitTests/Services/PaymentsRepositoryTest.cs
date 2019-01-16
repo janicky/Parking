@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SQLitePCL;
 using Parking.Model;
 using Parking.Services;
 using System.Collections.Generic;
@@ -12,7 +11,6 @@ namespace Parking.UnitTests.Services {
 
         [TestInitialize]
         public void InitializeTest() {
-            Batteries_V2.Init();
             dr.Clear();
             dr.CreatePayment(new Payment(1, 100d));
         }
