@@ -10,6 +10,7 @@ using System.Windows.Input;
 using Parking.Model;
 using Parking.ViewModel.Commands;
 using Parking.ViewModel.Helpers;
+using Parking.View;
 
 namespace Parking.ViewModel {
     
@@ -18,6 +19,7 @@ namespace Parking.ViewModel {
         // Fields
         private Vehicle _selectedVehicle;
         private bool _canStartVisit = false;
+        private VehicleFormWindow _addVehicleWindow;
 
         // Details
         private VehicleDetails _vehicleDetails = new VehicleDetails();
@@ -52,6 +54,11 @@ namespace Parking.ViewModel {
         public VehicleDetails VehicleDetails {
             get => _vehicleDetails;
             set { _vehicleDetails = value; OnPropertyChanged("VehicleDetails"); }
+        }
+
+        public VehicleFormWindow AddVehicleWindow {
+            get => _addVehicleWindow;
+            set { _addVehicleWindow = value; OnPropertyChanged("AddVehicleWindow"); }
         }
 
         public VehiclesViewModel() {
