@@ -38,6 +38,7 @@ namespace Parking.Services {
                 existingVisit.StartDate = visit.StartDate;
                 existingVisit.EndDate = visit.EndDate;
                 existingVisit.PaymentId = visit.PaymentId;
+                existingVisit.Finished = visit.Finished;
                 conn.RunInTransaction(() => {
                     conn.Update(existingVisit);
                 });

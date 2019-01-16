@@ -24,7 +24,8 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-
+            Visit visit = vm.GetVisitForSelectedVehicle();
+            vm.EndVisit(visit);
             MessageBox.Show("Płatność została zapisana jako uregulowana.", "Koniec postoju");
         }
     }

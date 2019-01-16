@@ -25,6 +25,7 @@ namespace Parking.ViewModel {
         // Model
         public readonly Vehicles Vehicles = new Vehicles();
         public readonly Visits Visits = new Visits();
+        public readonly Payments Payments = new Payments();
 
         // Commands
         public SelectVehicleCommand SelectVehicleCommand { get; set; }
@@ -39,7 +40,7 @@ namespace Parking.ViewModel {
             set { _canStartVisit = value; OnPropertyChanged("CanStartVisit"); OnPropertyChanged("CanEndVisit"); }
         }
         public bool CanEndVisit {
-            get => !_canStartVisit;
+            get => !_canStartVisit && SelectedVehicle != null;
         }
 
         public Vehicle SelectedVehicle {
@@ -81,6 +82,15 @@ namespace Parking.ViewModel {
             }
             VehicleDetails.Visible = visit != null;
             CanStartVisit = !unfinishedVisit;
+        }
+
+        public void EndVisit(Visit visit) {
+            Payment payment = Payments.Create(visit.GetPrice());
+            visit.PaymentId = payment.Id;
+            visit.Finish();
+            VehicleDetails.Update(visit);
+            CanStartVisit = true;
+            Visits.Update(visit);
         }
 
     }

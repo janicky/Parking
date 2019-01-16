@@ -13,7 +13,7 @@ namespace Parking.Services {
 
         public DataRepository(string connectionString = "W:/C#/Parking/Parking.Services/database.db") {
             this.connectionString = connectionString;
-            Batteries.Init();
+            Batteries_V2.Init();
         }
 
         public void Clear() {
