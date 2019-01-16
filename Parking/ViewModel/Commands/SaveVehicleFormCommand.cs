@@ -23,7 +23,7 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            MessageBox.Show("Działa");
+            vm.HandleSave();
         }
     }
 }

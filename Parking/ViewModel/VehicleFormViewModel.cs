@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Parking.ViewModel.Commands;
 
 namespace Parking.ViewModel {
@@ -12,6 +13,7 @@ namespace Parking.ViewModel {
         private string _id;
         private int _vehicleType = 0;
 
+        private Action<string, int> OnSaveMethod;
         public SaveVehicleFormCommand SaveVehicleFormCommand { get; set; }
 
         public string Title {
@@ -29,9 +31,16 @@ namespace Parking.ViewModel {
             set { _vehicleType = value; OnPropertyChanged("VehicleType"); }
         }
 
-        public VehicleFormViewModel() {
+        public VehicleFormViewModel(Action<string, int> OnSaveMethod) {
             SaveVehicleFormCommand = new SaveVehicleFormCommand(this);
+            this.OnSaveMethod = OnSaveMethod;
         }
 
+        public void HandleSave() {
+            OnSaveMethod(Id, VehicleType + 1);
+        }
+
+
     }
+
 }

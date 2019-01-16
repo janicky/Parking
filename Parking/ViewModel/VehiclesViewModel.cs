@@ -114,9 +114,15 @@ namespace Parking.ViewModel {
         }
 
         public void AddVehicle() {
-            AddVehicleWindow = new VehicleFormWindow();
+            VehicleFormViewModel vm = new VehicleFormViewModel(HandleAddVehicle);
+            AddVehicleWindow = new VehicleFormWindow { DataContext = vm };
             AddVehicleWindow.Show();
             AddVehicleWindow.Closing += OnAddWindowClose;
+        }
+
+        public void HandleAddVehicle(string id, int vehicleType) {
+            Vehicle vehicle = Vehicles.Create(id, vehicleType);
+            VehiclesCollection.Add(vehicle);
         }
 
         public void OnAddWindowClose(object sender, CancelEventArgs e) {
