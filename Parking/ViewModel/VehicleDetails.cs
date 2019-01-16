@@ -50,7 +50,7 @@ namespace Parking.ViewModel {
 
         public bool VisitFinished {
             get => _visitFinished;
-            set { _visitFinished = value; OnPropertyChanged("VisitFinishedString"); }
+            set { _visitFinished = value; OnPropertyChanged("VisitFinished");  OnPropertyChanged("VisitFinishedString"); }
         }
 
         public string VisitFinishedString {
