@@ -125,6 +125,7 @@ namespace Parking.ViewModel {
             CanStartVisit = false;
         }
 
+        // Add vehicle
         public void AddVehicle() {
             VehicleFormViewModel vm = new VehicleFormViewModel(HandleAddVehicle);
             AddVehicleWindow = new VehicleFormWindow { DataContext = vm };
@@ -141,8 +142,17 @@ namespace Parking.ViewModel {
             AddVehicleWindow = null;
         }
 
+        // Edit vehicle
         public void EditVehicle() {
-
+            VehicleFormViewModel vm = new VehicleFormViewModel(HandleAddVehicle);
+            EditVehicleWindow = new VehicleFormWindow { DataContext = vm };
+            EditVehicleWindow.Show();
+            EditVehicleWindow.Closing += OnEditWindowClose;
         }
+
+        public void OnEditWindowClose(object sender, CancelEventArgs e) {
+            EditVehicleWindow = null;
+        }
+
     }
 }
