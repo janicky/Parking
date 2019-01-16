@@ -19,8 +19,10 @@ namespace Parking.Model {
             return dataRepository.GetVehicle(id);
         }
 
-        public void Create(Vehicle vehicle) {
+        public Vehicle Create(string id, int vehicleType) {
+            Vehicle vehicle = new Vehicle(id, (Vehicle.Type) vehicleType);
             dataRepository.CreateVehicle(vehicle);
+            return vehicle;
         }
 
         public void Update(Vehicle vehicle) {
