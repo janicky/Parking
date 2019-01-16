@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Parking.Model;
 
 namespace Parking.ViewModel.Commands {
     class SelectVehicleCommand : ICommand {
@@ -20,7 +21,8 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            vm.UpdateVehicleDetails();
+            Visit visit = vm.GetVisitForSelectedVehicle();
+            vm.UpdateVehicleDetails(visit);
         }
     }
 }

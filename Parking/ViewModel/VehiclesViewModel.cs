@@ -66,12 +66,11 @@ namespace Parking.ViewModel {
         }
 
         // Command <=> ViewModel
-        private Visit GetVisitForSelectedVehicle() {
+        public Visit GetVisitForSelectedVehicle() {
             return Visits.GetForVehicle(SelectedVehicle.Id);
         }
 
-        public void UpdateVehicleDetails() {
-            Visit visit = GetVisitForSelectedVehicle();
+        public void UpdateVehicleDetails(Visit visit) {
             bool unfinishedVisit = false;
             if (visit != null) {
                 VehicleDetails.Update(visit);
