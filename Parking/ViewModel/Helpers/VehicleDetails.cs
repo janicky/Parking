@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Parking.Model;
 
 namespace Parking.ViewModel.Helpers {
     class VehicleDetails : ViewModel {
@@ -55,6 +56,15 @@ namespace Parking.ViewModel.Helpers {
 
         public string VisitFinishedString {
             get => (_visitFinished ? "Tak" : "Nie");
+        }
+
+        public void Update(Visit visit) {
+            VisitId = visit.Id;
+            VisitStartDate = visit.StartDateTime.ToString();
+            VisitEndDate = visit.EndDateTime.ToString();
+            VisitDuration = (visit.AbsoluteEndTime - visit.StartDateTime).ToString();
+            VisitPrice = visit.GetPrice().ToString();
+            VisitFinished = visit.Finished;
         }
     }
 }
