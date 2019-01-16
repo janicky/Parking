@@ -38,7 +38,7 @@
                 <ComboBoxItem>Motocykl</ComboBoxItem>
             </ComboBox>
 
-            <Button Content="Zapisz" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="25,10" Margin="5,0,15,0" />
+            <Button Command="{Binding SaveVehicleFormCommand}" Content="Zapisz" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="25,10" Margin="5,0,15,0" />
         </Grid>
         
     </Grid>
