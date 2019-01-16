@@ -5,11 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ViewModel="clr-namespace:Parking.ViewModel"
         mc:Ignorable="d"
-        Title="asdadasd" Height="384.94" Width="202.62">
+        Title="{Binding Title}" Height="400" Width="600">
     <Window.DataContext>
         <ViewModel:VehicleFormViewModel/>
     </Window.DataContext>
     <Grid>
-        <Label Content="xxx" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="{Binding Title}" FontSize="25" Padding="10" HorizontalAlignment="Center" />
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Numer rejestracyjny" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" />
+            <TextBox Grid.Row="0" Grid.Column="1" Width="Auto" Margin="5,0,15,0" Padding="5" FontSize="16" VerticalAlignment="Center" />
+
+            <Label Content="Typ pojazdu" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" />
+            <ComboBox Grid.Row="1" Grid.Column="1" Margin="5,0,15,0" VerticalAlignment="Center" Padding="5" SelectedIndex="{Binding VehicleType}">
+                <ComboBoxItem>Samochód</ComboBoxItem>
+                <ComboBoxItem>Motocykl</ComboBoxItem>
+            </ComboBox>
+
+            <Button Content="Zapisz" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="25,10" Margin="5,0,15,0" />
+        </Grid>
+        
     </Grid>
 </Window>
