@@ -86,7 +86,7 @@ namespace Parking.ViewModel {
         public ObservableCollection<Vehicle> VehiclesCollection {
             get => vehicles;
             set {
-                if (vehicles == value) return;
+                //if (vehicles == value) return;
                 vehicles = value;
                 OnPropertyChanged("VehiclesCollection");
             }
@@ -144,10 +144,19 @@ namespace Parking.ViewModel {
 
         // Edit vehicle
         public void EditVehicle() {
-            VehicleFormViewModel vm = new VehicleFormViewModel(HandleAddVehicle, string.Format("Edytuj pojazd - {0}", SelectedVehicle.Id), "Zapisz", SelectedVehicle);
+            VehicleFormViewModel vm = new VehicleFormViewModel(HandleEditVehicle, string.Format("Edytuj pojazd - {0}", SelectedVehicle.Id), "Zapisz", SelectedVehicle);
             EditVehicleWindow = new VehicleFormWindow { DataContext = vm };
             EditVehicleWindow.Show();
             EditVehicleWindow.Closing += OnEditWindowClose;
+        }
+
+        public void HandleEditVehicle(string id, int vehicleType) {
+            var item = VehiclesCollection.FirstOrDefault(i => i.Id == SelectedVehicle.Id);
+            if (item != null) {
+                item.VehicleType = vehicleType;
+                Vehicles.Update(SelectedVehicle);
+            }
+            VehiclesCollection = new ObservableCollection<Vehicle>(VehiclesCollection);
         }
 
         public void OnEditWindowClose(object sender, CancelEventArgs e) {

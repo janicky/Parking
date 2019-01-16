@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 
 namespace Parking.Model {
-    public class Vehicle {
+    public class Vehicle : Model {
         public enum Type { Car = 1, Motorcycle = 2 }
 
         private Type vehicleType;
@@ -15,7 +16,7 @@ namespace Parking.Model {
         public string Id { get; set; }
         public int VehicleType {
             get => (int) vehicleType;
-            set => vehicleType = (Type) value;
+            set { vehicleType = (Type)value; OnPropertyChanged("VehicleType"); }
         }
 
         public string VehicleTypeName {
