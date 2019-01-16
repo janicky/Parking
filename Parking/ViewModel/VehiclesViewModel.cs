@@ -116,11 +116,11 @@ namespace Parking.ViewModel {
             visit.Finish();
             VehicleDetails.Update(visit);
             CanStartVisit = true;
-            Visits.Update(visit);
+            Task.Run(() => Visits.Update(visit));
         }
 
         public void DeleteVehicle() {
-            Vehicles.Delete(SelectedVehicle.Id);
+            Task.Run(() => Vehicles.Delete(SelectedVehicle.Id));
             VehiclesCollection.Remove(SelectedVehicle);
             CanStartVisit = false;
         }
@@ -135,7 +135,7 @@ namespace Parking.ViewModel {
 
         public void HandleAddVehicle(string plate, int vehicleType) {
             Vehicle vehicle = Vehicles.Create(plate, vehicleType);
-            VehiclesCollection.Add(vehicle);
+            Task.Run(() => VehiclesCollection.Add(vehicle));
         }
 
         public void OnAddWindowClose(object sender, CancelEventArgs e) {
@@ -155,7 +155,8 @@ namespace Parking.ViewModel {
             if (item != null) {
                 item.Plate = plate;
                 item.VehicleType = vehicleType;
-                Vehicles.Update(SelectedVehicle);
+
+                Task.Run(() => Vehicles.Update(SelectedVehicle));
             }
             VehiclesCollection = new ObservableCollection<Vehicle>(VehiclesCollection);
         }
