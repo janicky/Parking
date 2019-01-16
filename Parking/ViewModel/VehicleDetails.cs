@@ -16,7 +16,11 @@ namespace Parking.ViewModel {
 
         public bool Visible {
             get => _visible;
-            set { _visible = value; OnPropertyChanged("Visible"); }
+            set { _visible = value; OnPropertyChanged("Visible"); OnPropertyChanged("Hidden"); }
+        }
+
+        public bool Hidden {
+            get => !_visible;
         }
 
         public int VisitId {
@@ -46,7 +50,11 @@ namespace Parking.ViewModel {
 
         public bool VisitFinished {
             get => _visitFinished;
-            set { _visitFinished = value; OnPropertyChanged("VisitFinished"); }
+            set { _visitFinished = value; OnPropertyChanged("VisitFinishedString"); }
+        }
+
+        public string VisitFinishedString {
+            get => (_visitFinished ? "Tak" : "Nie");
         }
     }
 }

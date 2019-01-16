@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Parking.Model;
 using SQLite;
-using Microsoft.Data.Sqlite;
 
 namespace Parking.Services {
     public partial class DataRepository {

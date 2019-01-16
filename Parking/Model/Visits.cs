@@ -19,7 +19,7 @@ namespace Parking.Model {
         }
 
         public Visit GetForVehicle(string id) {
-            return dataRepository.GetAllVisits().Find(v => v.VehicleId == id);
+            return dataRepository.GetAllVisits().LastOrDefault(v => v.VehicleId == id);
         }
 
         public void Create(Visit visit) {
