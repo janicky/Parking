@@ -90,6 +90,10 @@
       <Project>{d719407c-e9aa-48cd-9058-bb533c92abe0}</Project>
       <Name>Parking.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Parking\Parking.csproj">
+      <Project>{95159dd8-7d5a-45a8-a7b4-9a8270f3a444}</Project>
+      <Name>Parking</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

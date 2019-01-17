@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 
 namespace Parking.ViewModel.Commands {
-    class SaveVehicleFormCommand : ICommand {
+    public class SaveVehicleFormCommand : ICommand {
         public event EventHandler CanExecuteChanged {
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;

@@ -6,7 +6,7 @@ using System.Text;
 using Parking.Services;
 
 namespace Parking.Model {
-    class Payments {
+    public class Payments {
         DataRepository dataRepository = new DataRepository();
 
         public IEnumerable<Payment> All() {

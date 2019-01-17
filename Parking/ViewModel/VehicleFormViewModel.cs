@@ -11,7 +11,7 @@ using Parking.Model;
 using System.ComponentModel;
 
 namespace Parking.ViewModel {
-    class VehicleFormViewModel : ViewModel, ICloseable, IDataErrorInfo {
+    public class VehicleFormViewModel : ViewModel, ICloseable, IDataErrorInfo {
 
         private string _title = "Formularz pojazdu";
         private string _button = "Zapisz";

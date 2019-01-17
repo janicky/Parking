@@ -15,7 +15,7 @@ using Parking.ViewModel.Common;
 
 namespace Parking.ViewModel {
 
-    class VehiclesViewModel : ViewModel, ICloseable {
+    public class VehiclesViewModel : ViewModel, ICloseable {
 
         // Fields
         private Vehicle _selectedVehicle;
@@ -49,6 +49,7 @@ namespace Parking.ViewModel {
             get => _canStartVisit;
             set { _canStartVisit = value; OnPropertyChanged("CanStartVisit"); OnPropertyChanged("CanEndVisit"); }
         }
+
         public bool CanEndVisit {
             get => !_canStartVisit && SelectedVehicle != null;
         }

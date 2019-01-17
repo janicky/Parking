@@ -7,7 +7,7 @@ using Parking.Services;
 
 namespace Parking.Model {
 
-    class Vehicles {
+    public class Vehicles {
 
         DataRepository dataRepository = new DataRepository();
 

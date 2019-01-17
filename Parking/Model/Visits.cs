@@ -7,7 +7,7 @@ using Parking.Model;
 using Parking.Services;
 
 namespace Parking.Model {
-    class Visits {
+    public class Visits {
         DataRepository dataRepository = new DataRepository();
 
         public IEnumerable<Visit> All() {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Parking.Model;
 
 namespace Parking.ViewModel.Helpers {
-    class VehicleDetails : ViewModel {
+    public class VehicleDetails : ViewModel {
         private bool _visible;
         private int _visitId;
         private string _visitStartDate;

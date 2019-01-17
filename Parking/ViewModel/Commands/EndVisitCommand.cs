@@ -8,7 +8,7 @@ using System.Windows.Input;
 using Parking.Model;
 
 namespace Parking.ViewModel.Commands {
-    class EndVisitCommand : ICommand {
+    public class EndVisitCommand : ICommand {
         public event EventHandler CanExecuteChanged {
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
