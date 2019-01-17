@@ -79,6 +79,7 @@
     <Compile Include="Services\PaymentsRepositoryTest.cs" />
     <Compile Include="Services\VisitsRepositoryTests.cs" />
     <Compile Include="Services\VehiclesRepositoryTests.cs" />
+    <Compile Include="VehicleFormViewModelTests.cs" />
     <Compile Include="VehiclesViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
