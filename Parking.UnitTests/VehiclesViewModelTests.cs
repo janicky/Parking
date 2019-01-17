@@ -9,6 +9,7 @@ namespace Parking.UnitTests {
 
         private VehiclesViewModel vvm;
         private Visits Visits = new Visits();
+        private Vehicles Vehicles = new Vehicles();
 
         [TestInitialize]
         public void TestInitialize() {
@@ -61,6 +62,24 @@ namespace Parking.UnitTests {
 
             vvm.EndVisit(visit);
             Assert.AreEqual(true, visit.Finished);
+        }
+
+        [TestMethod]
+        public void DeleteVehicle() {
+            Vehicle vehicle = Vehicles.Create("98ASD871NFLS91", 1);
+
+            var beforeAdd = vvm.VehiclesCollection.IndexOf(vehicle);
+            Assert.AreEqual(-1, beforeAdd);
+            Assert.AreEqual(Vehicles.Get(vehicle.Id).Id, vehicle.Id);
+
+            vvm.VehiclesCollection.Add(vehicle);
+            var beforeDelete = vvm.VehiclesCollection.IndexOf(vehicle);
+            Assert.AreNotEqual(-1, beforeDelete);
+            vvm.SelectedVehicle = vehicle;
+            vvm.DeleteVehicle();
+
+            var afterDelete = vvm.VehiclesCollection.IndexOf(vehicle);
+            Assert.AreEqual(-1, afterDelete);
         }
     }
 }
