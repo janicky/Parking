@@ -3,13 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ViewModel="clr-namespace:Parking.ViewModel"
         xmlns:ie="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="Parking" Height="500" Width="800">
-    <Window.DataContext>
-        <ViewModel:VehiclesViewModel/>
-    </Window.DataContext>
     <Window.Resources >
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Window.Resources>

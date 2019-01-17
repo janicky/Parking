@@ -15,7 +15,7 @@ using Parking.ViewModel.Common;
 
 namespace Parking.ViewModel {
 
-    public class VehiclesViewModel : ViewModel, ICloseable {
+    public class VehiclesViewModel : ViewModel, ICloseable, IDisposable {
 
         // Fields
         private Vehicle _selectedVehicle;
@@ -184,5 +184,8 @@ namespace Parking.ViewModel {
             EditVehicleWindow = null;
         }
 
+        public void Dispose() {
+            VehiclesCollection.Clear();
+        }
     }
 }
