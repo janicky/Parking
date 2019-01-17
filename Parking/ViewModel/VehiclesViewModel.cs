@@ -156,7 +156,7 @@ namespace Parking.ViewModel {
         }
 
         public void HandleEditVehicle(string plate, int vehicleType) {
-            if (Vehicles.IsUnique(plate)) {
+            if (Vehicles.IsUnique(plate, SelectedVehicle.Id)) {
                 var item = VehiclesCollection.FirstOrDefault(i => i.Id == SelectedVehicle.Id);
                 if (item != null) {
                     item.Plate = plate;
