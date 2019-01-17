@@ -29,7 +29,12 @@ namespace Parking.UnitTests {
             Assert.AreEqual(null, vvm.GetVisitForSelectedVehicle());
             vvm.SelectedVehicle = vvm.VehiclesCollection[0];
             Visit visit = Visits.GetForVehicle(vvm.SelectedVehicle.Id);
-            Assert.AreEqual(visit.Id, vvm.GetVisitForSelectedVehicle().Id);
+            vvm.UpdateVehicleDetails(visit);
+            if (visit != null) {
+                Assert.AreEqual(visit.Finished, vvm.CanStartVisit);
+                Assert.AreEqual(!visit.Finished, vvm.CanEndVisit);
+                Assert.AreEqual(visit.Id, vvm.GetVisitForSelectedVehicle().Id);
+            }
         }
     }
 }
