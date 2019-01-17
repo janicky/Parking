@@ -36,5 +36,12 @@ namespace Parking.UnitTests {
                 Assert.AreEqual(visit.Id, vvm.GetVisitForSelectedVehicle().Id);
             }
         }
+
+        [TestMethod]
+        public void CorrectlyUpdateVehicleDetails() {
+            vvm.UpdateVehicleDetails(null);
+            Assert.AreEqual(true, vvm.CanStartVisit);
+            Assert.AreEqual(false, vvm.CanEndVisit);
+        }
     }
 }
