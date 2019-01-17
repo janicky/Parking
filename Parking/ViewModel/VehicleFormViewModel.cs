@@ -65,13 +65,15 @@ namespace Parking.ViewModel {
             }
         }
 
-        public void HandleSave() {
+        public void HandleSave(bool test = false) {
             try {
                 if (string.IsNullOrEmpty(Plate) || Plate.Length > 15) {
                     throw new Exception("Nieprawidłowa tablica rejestracyjna.");
                 }
 
-                RequestClose.Invoke(this, EventArgs.Empty);
+                if (!test) {
+                    RequestClose.Invoke(this, EventArgs.Empty);
+                }
                 OnSaveMethod(Plate, VehicleType + 1);
             } catch (Exception e) {
                 MessageBox.Show(e.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
