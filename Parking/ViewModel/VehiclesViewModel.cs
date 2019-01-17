@@ -148,7 +148,7 @@ namespace Parking.ViewModel {
 
         // Edit vehicle
         public void EditVehicle() {
-            VehicleFormViewModel vm = new VehicleFormViewModel(HandleEditVehicle, string.Format("Edytuj pojazd - {0}", SelectedVehicle.Id), "Zapisz", SelectedVehicle);
+            VehicleFormViewModel vm = new VehicleFormViewModel(HandleEditVehicle, string.Format("Edytuj pojazd - {0}", SelectedVehicle.Plate), "Zapisz", SelectedVehicle);
             EditVehicleWindow = new VehicleFormWindow { DataContext = vm };
             EditVehicleWindow.Show();
             EditVehicleWindow.Closing += OnEditWindowClose;
