@@ -111,6 +111,12 @@ namespace Parking.ViewModel {
             CanStartVisit = !unfinishedVisit;
         }
 
+        public void StartVisit() {
+            Visit visit = Visits.Create(SelectedVehicle.Id);
+            CanStartVisit = false;
+            UpdateVehicleDetails(visit);
+        }
+
         public void EndVisit(Visit visit) {
             Payment payment = Payments.Create(visit.GetPrice());
             visit.PaymentId = payment.Id;

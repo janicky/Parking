@@ -43,5 +43,24 @@ namespace Parking.UnitTests {
             Assert.AreEqual(true, vvm.CanStartVisit);
             Assert.AreEqual(false, vvm.CanEndVisit);
         }
+
+        [TestMethod]
+        public void CorrectStartAndEndVisit() {
+            Vehicle vehicle = vvm.VehiclesCollection[0];
+            if (vehicle == null) Assert.Fail();
+            vvm.SelectedVehicle = vehicle;
+
+            Visit visit = vvm.GetVisitForSelectedVehicle();
+            if (visit == null || visit.Finished) {
+                vvm.StartVisit();
+            }
+            visit = vvm.GetVisitForSelectedVehicle();
+
+            Assert.AreNotEqual(null, visit);
+            Assert.AreEqual(false, visit.Finished);
+
+            vvm.EndVisit(visit);
+            Assert.AreEqual(true, visit.Finished);
+        }
     }
 }

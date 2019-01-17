@@ -23,9 +23,7 @@ namespace Parking.ViewModel.Commands {
         }
 
         public void Execute(object parameter) {
-            Visit visit = vm.Visits.Create(vm.SelectedVehicle.Id);
-            vm.CanStartVisit = false;
-            vm.UpdateVehicleDetails(visit);
+            vm.StartVisit();
         }
     }
 }
