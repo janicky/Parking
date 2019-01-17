@@ -123,11 +123,11 @@ namespace Parking.ViewModel {
             visit.Finish();
             VehicleDetails.Update(visit);
             CanStartVisit = true;
-            Task.Run(() => Visits.Update(visit));
+            Visits.Update(visit);
         }
 
         public void DeleteVehicle() {
-            Task.Run(() => Vehicles.Delete(SelectedVehicle.Id));
+            Vehicles.Delete(SelectedVehicle.Id);
             VehiclesCollection.Remove(SelectedVehicle);
             CanStartVisit = false;
         }
