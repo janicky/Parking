@@ -89,7 +89,7 @@ namespace Parking.UnitTests {
 
             int vehiclesInList = vvm.VehiclesCollection.Count;
             int vehiclesInModel = new List<Vehicle>(Vehicles.All()).Count;
-            vvm.AddVehicle();
+            vvm.AddVehicle(true);
             Assert.AreNotEqual(null, vvm.AddVehicleWindow);
             vvm.HandleAddVehicle(plate, 1);
 
@@ -104,7 +104,25 @@ namespace Parking.UnitTests {
             }
 
             vvm.SelectedVehicle = vehicle;
-            vvm.DeleteVehicle();
+            Vehicles.Delete(vehicle.Id);
+        }
+
+        [TestMethod]
+        public void CorrectlyEditVehicle() {
+            string plate = "164X41C891ASDA";
+            Vehicle vehicle = Vehicles.Create(plate, 1);
+            vvm.VehiclesCollection.Add(vehicle);
+            vvm.SelectedVehicle = vehicle;
+            vvm.EditVehicle(true);
+            Assert.AreNotEqual(null, vvm.EditVehicleWindow);
+
+            string newPlate = "164X41C891ASDB";
+            vvm.HandleEditVehicle(newPlate, 1);
+
+            Vehicle updatedVehicle = Vehicles.Get(vehicle.Id);
+            Assert.AreEqual(newPlate, updatedVehicle.Plate);
+
+            Vehicles.Delete(vehicle.Id);
         }
     }
 }

@@ -133,11 +133,13 @@ namespace Parking.ViewModel {
         }
 
         // Add vehicle
-        public void AddVehicle() {
+        public void AddVehicle(bool test = false) {
             VehicleFormViewModel vm = new VehicleFormViewModel(HandleAddVehicle, "Dodaj nowy pojazd", "Dodaj");
             AddVehicleWindow = new VehicleFormWindow { DataContext = vm };
-            AddVehicleWindow.Show();
-            AddVehicleWindow.Closing += OnAddWindowClose;
+            if (!test) {
+                AddVehicleWindow.Show();
+                AddVehicleWindow.Closing += OnAddWindowClose;
+            }
         }
 
         public void HandleAddVehicle(string plate, int vehicleType) {
@@ -154,11 +156,13 @@ namespace Parking.ViewModel {
         }
 
         // Edit vehicle
-        public void EditVehicle() {
+        public void EditVehicle(bool test = false) {
             VehicleFormViewModel vm = new VehicleFormViewModel(HandleEditVehicle, string.Format("Edytuj pojazd - {0}", SelectedVehicle.Plate), "Zapisz", SelectedVehicle);
             EditVehicleWindow = new VehicleFormWindow { DataContext = vm };
-            EditVehicleWindow.Show();
-            EditVehicleWindow.Closing += OnEditWindowClose;
+            if (!test) {
+                EditVehicleWindow.Show();
+                EditVehicleWindow.Closing += OnEditWindowClose;
+            }
         }
 
         public void HandleEditVehicle(string plate, int vehicleType) {
@@ -168,7 +172,7 @@ namespace Parking.ViewModel {
                     item.Plate = plate;
                     item.VehicleType = vehicleType;
 
-                    Task.Run(() => Vehicles.Update(SelectedVehicle));
+                    Vehicles.Update(SelectedVehicle);
                 }
                 VehiclesCollection = new ObservableCollection<Vehicle>(VehiclesCollection);
             } else {
