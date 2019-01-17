@@ -15,7 +15,11 @@ namespace Parking.UnitTests {
 
         [TestMethod]
         public void CorrectVisitStatesOnStartup() {
-            //Assert.AreEqual(false, vvm.CanStartVisit);
+            Assert.AreEqual(false, vvm.CanStartVisit);
+            Assert.AreEqual(false, vvm.CanEndVisit);
+            Assert.AreEqual(null, vvm.SelectedVehicle);
+            Assert.AreEqual(null, vvm.AddVehicleWindow);
+            Assert.AreEqual(null, vvm.EditVehicleWindow);
         }
     }
 }
