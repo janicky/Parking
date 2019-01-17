@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Parking.ViewModel;
 using Parking.Model;
+using System.Collections.Generic;
 
 namespace Parking.UnitTests {
     [TestClass]
@@ -65,7 +66,7 @@ namespace Parking.UnitTests {
         }
 
         [TestMethod]
-        public void DeleteVehicle() {
+        public void CorrectlyDeleteVehicle() {
             Vehicle vehicle = Vehicles.Create("98ASD871NFLS91", 1);
 
             var beforeAdd = vvm.VehiclesCollection.IndexOf(vehicle);
@@ -80,6 +81,30 @@ namespace Parking.UnitTests {
 
             var afterDelete = vvm.VehiclesCollection.IndexOf(vehicle);
             Assert.AreEqual(-1, afterDelete);
+        }
+
+        [TestMethod]
+        public void CorrectlyAddVehicle() {
+            string plate = "912389SADAB1JSK";
+
+            int vehiclesInList = vvm.VehiclesCollection.Count;
+            int vehiclesInModel = new List<Vehicle>(Vehicles.All()).Count;
+            vvm.AddVehicle();
+            Assert.AreNotEqual(null, vvm.AddVehicleWindow);
+            vvm.HandleAddVehicle(plate, 1);
+
+            Assert.AreEqual(vehiclesInList + 1, vvm.VehiclesCollection.Count);
+            Assert.AreEqual(vehiclesInModel + 1, new List<Vehicle>(Vehicles.All()).Count);
+
+            List<Vehicle> vehiclesList = new List<Vehicle>(Vehicles.All());
+            Vehicle vehicle = vehiclesList.FindLast(i => i.Plate == plate);
+
+            if (vehicle == null) {
+                Assert.Fail();
+            }
+
+            vvm.SelectedVehicle = vehicle;
+            vvm.DeleteVehicle();
         }
     }
 }
