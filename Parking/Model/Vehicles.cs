@@ -25,6 +25,12 @@ namespace Parking.Model {
             return vehicle;
         }
 
+        public bool IsUnique(string plate) {
+            List<Vehicle> vehicles = new List<Vehicle>(All());
+            var item = vehicles.Find(i => i.Plate == plate);
+            return item == null;
+        }
+
         public void Update(Vehicle vehicle) {
             dataRepository.UpdateVehicle(vehicle);
         }

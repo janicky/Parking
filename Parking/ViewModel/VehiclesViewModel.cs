@@ -134,8 +134,12 @@ namespace Parking.ViewModel {
         }
 
         public void HandleAddVehicle(string plate, int vehicleType) {
-            Vehicle vehicle = Vehicles.Create(plate, vehicleType);
-            Task.Run(() => VehiclesCollection.Add(vehicle));
+            if (Vehicles.IsUnique(plate)) {
+                Vehicle vehicle = Vehicles.Create(plate, vehicleType);
+                VehiclesCollection.Add(vehicle);
+            } else {
+                MessageBox.Show("Pojazd o takim numerze rejestracyjnym już istnieje", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public void OnAddWindowClose(object sender, CancelEventArgs e) {
@@ -151,14 +155,18 @@ namespace Parking.ViewModel {
         }
 
         public void HandleEditVehicle(string plate, int vehicleType) {
-            var item = VehiclesCollection.FirstOrDefault(i => i.Id == SelectedVehicle.Id);
-            if (item != null) {
-                item.Plate = plate;
-                item.VehicleType = vehicleType;
+            if (Vehicles.IsUnique(plate)) {
+                var item = VehiclesCollection.FirstOrDefault(i => i.Id == SelectedVehicle.Id);
+                if (item != null) {
+                    item.Plate = plate;
+                    item.VehicleType = vehicleType;
 
-                Task.Run(() => Vehicles.Update(SelectedVehicle));
+                    Task.Run(() => Vehicles.Update(SelectedVehicle));
+                }
+                VehiclesCollection = new ObservableCollection<Vehicle>(VehiclesCollection);
+            } else {
+                MessageBox.Show("Pojazd o takim numerze rejestracyjnym już istnieje", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            VehiclesCollection = new ObservableCollection<Vehicle>(VehiclesCollection);
         }
 
         public void OnEditWindowClose(object sender, CancelEventArgs e) {

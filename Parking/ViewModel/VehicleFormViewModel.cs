@@ -8,9 +8,10 @@ using System.Windows.Input;
 using Parking.ViewModel.Commands;
 using Parking.ViewModel.Common;
 using Parking.Model;
+using System.ComponentModel;
 
 namespace Parking.ViewModel {
-    class VehicleFormViewModel : ViewModel, ICloseable {
+    class VehicleFormViewModel : ViewModel, ICloseable, IDataErrorInfo {
 
         private string _title = "Formularz pojazdu";
         private string _button = "Zapisz";
@@ -44,6 +45,14 @@ namespace Parking.ViewModel {
             set { _vehicleType = value; OnPropertyChanged("VehicleType"); }
         }
 
+        public string Error => throw new NotImplementedException();
+
+        public string this[string propertyName] {
+            get {
+                return OnValidate(propertyName);
+            }
+        }
+
         public VehicleFormViewModel(Action<string, int> OnSaveMethod, string title = "Formularz", string button = "Zapisz", Vehicle vehicle = null) {
             SaveVehicleFormCommand = new SaveVehicleFormCommand(this);
             this.OnSaveMethod = OnSaveMethod;
@@ -57,10 +66,37 @@ namespace Parking.ViewModel {
         }
 
         public void HandleSave() {
-            RequestClose.Invoke(this, EventArgs.Empty);
-            OnSaveMethod(Plate, VehicleType + 1);
+            try {
+                if (string.IsNullOrEmpty(Plate) || Plate.Length > 15) {
+                    throw new Exception("Nieprawidłowa tablica rejestracyjna.");
+                }
+
+                RequestClose.Invoke(this, EventArgs.Empty);
+                OnSaveMethod(Plate, VehicleType + 1);
+            } catch (Exception e) {
+                MessageBox.Show(e.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
+        protected virtual string OnValidate(string propertyName) {
+            string result = string.Empty;
+
+            if (propertyName == "Plate") {
+                if (string.IsNullOrEmpty(Plate)) {
+                    result = "Tablica rejestracyjna jest wymagana";
+                }
+                if (Plate != null && Plate.Length > 15) {
+                    result = "Tablica rejestracyjna jest zbyt długa";
+                }
+            }
+            if (propertyName == "VehicleType") {
+                if (VehicleType != 0 && VehicleType != 1) {
+                    result = "Nieprawidłowy typ pojazdu";
+                }
+            }
+            return result;
+        }
 
     }
 
